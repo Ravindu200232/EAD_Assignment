@@ -23,4 +23,6 @@ public interface IStationService
     Task<StationResponse> DeactivateAsync(string id);
 
     Task<StationResponse> ActivateAsync(string id);
+
+    Task DeleteAsync(string id);
 }

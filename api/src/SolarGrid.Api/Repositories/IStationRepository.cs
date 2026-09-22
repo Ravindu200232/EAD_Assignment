@@ -19,7 +19,9 @@ public interface IStationRepository
     // Helper for dashboards.
     Task<long> CountAsync(StationStatus? status = null);
 
-    // Helper for the map.
+    // Helper for the map and for deleting unused stations.
     Task<IReadOnlyList<(SolarStation Station, double DistanceKm)>> FindNearbyAsync(
         double latitude, double longitude, double radiusKm, int limit);
+
+    Task DeleteAsync(string id);
 }

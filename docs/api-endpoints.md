@@ -90,6 +90,7 @@ All numbers are calculated from the database on every call. "Today" means today 
 | PATCH | `/api/stations/{id}/battery-slots` | Staff | `{ availableBatterySlots }` — how many bays can be used now (0 to total). |
 | POST | `/api/stations/{id}/deactivate` | Backoffice | Blocked while the station has pending or approved reservations that have not ended. |
 | POST | `/api/stations/{id}/activate` | Backoffice | Bring a station back into service. |
+| DELETE | `/api/stations/{id}` | Backoffice | Delete a station that was **never booked**, together with its empty slots. Stations with booking history return 400 and can only be deactivated. Returns 204. |
 
 Each station response includes `bayCapacityKwh` (storage ÷ battery slots), the most energy one booking can use.
 
@@ -105,6 +106,56 @@ Each station response includes `bayCapacityKwh` (storage ÷ battery slots), the 
 | DELETE | `/api/slots/{id}` | Staff | Only slots without bookings. Returns 204. |
 
 Slot responses contain UTC `startTime`/`endTime`, `capacity`, `bookedCount`, `availableBays` and `isOpen`.
+
+## Reservations — *Hamnad*
+
+| Method | Path | Who | Description |
+|---|---|---|---|
+| GET | `/api/reservations?scope=&status=&stationId=&nic=&from=&to=&search=&page=&pageSize=` | any signed-in user | Paged booking list. Prosumers only get their own. `scope`: `current` (approved, not finished), `pending` (waiting for approval), `history` (completed, cancelled, rejected or ended). `from`/`to` are local dates. `search` matches reference, station, prosumer name or NIC. |
+| GET | `/api/reservations/{id}` | owner or staff | One booking. |
+| POST | `/api/reservations` | Prosumer or staff | Book: `{ slotId, energyKwh, tradeType: "Export"\|"Import", prosumerNic? }`. Staff must give `prosumerNic`. Returns 201 with status **Pending**. |
+| PUT | `/api/reservations/{id}` | owner or staff | Change `{ slotId, energyKwh, tradeType }`. Needs ≥ 12 h notice; an approved booking goes back to **Pending** and its QR code stops working. |
+| POST | `/api/reservations/{id}/cancel` | owner or staff | Optional body `{ reason }`. Needs ≥ 12 h notice. Frees the bay. |
+| POST | `/api/reservations/{id}/approve` | Staff | Pending → **Approved**; issues a new QR code. |
+| POST | `/api/reservations/{id}/reject` | Staff | Body `{ reason }` (required). Pending → **Rejected**; frees the bay. |
+| GET | `/api/reservations/{id}/qr` | owner or staff | `{ payload, referenceNo, stationName, startTime, endTime }` for an **approved** booking. Draw `payload` as a QR image. |
+
+Booking rules enforced by the API:
+
+| Rule | Error |
+|---|---|
+| Slot starts in the future and **at most 7 days ahead** | 400 |
+| Changes and cancellations **at least 12 hours before the start** | 400 |
+| Slot open, station active, prosumer account active | 400 |
+| Energy > 0 and ≤ the station's `bayCapacityKwh` | 400 |
+| No two live bookings for the same prosumer at the same time | 409 |
+| A free bay in the slot (taken atomically, never overbooked) | 409 |
+| Someone else changed the booking at the same moment | 409 |
+
+Each response includes `canModify` (the 12-hour rule), `modifyDeadline` and `hasQrCode`, so the apps can show or hide buttons without re-implementing the rules.
+
+QR payload format: `SSG1.<reservationId>.<nonce>.<HMAC-SHA256 signature>`.
+
+## Operator check-in — *Ravindu*
+
+Both endpoints require a **Backoffice or Grid Operator** token.
+
+| Method | Path | Description |
+|---|---|---|
+| POST | `/api/checkin/verify` | Body `{ payload }` — the text read from the prosumer's QR code. Returns `{ canComplete, message, prosumerPhone, checkInOpensAt, checkInClosesAt, reservation }`. |
+| POST | `/api/checkin/{reservationId}/complete` | Body `{ payload, deliveredKwh }`. The code is checked again; the booking becomes **Completed** and the code can no longer be used. |
+
+Check-in rules:
+
+| Situation | Result |
+|---|---|
+| Text is not a `SSG1.…` code | 400 "This is not a Smart Solar booking QR code." |
+| Signature does not match (edited or forged code) | 400 "This QR code is not genuine." |
+| Booking was changed and approved again (older code) | 400 "This QR code is out of date…" |
+| Booking is pending, cancelled, rejected or already completed | 200 with `canComplete: false` and the reason |
+| Earlier than 2 hours before the start, or later than 1 hour after the end | 200 with `canComplete: false` and the opening time / "has passed" |
+| Delivered energy ≤ 0 or above the station's `bayCapacityKwh` | 400 |
+| Code from a different booking than `{reservationId}` | 400 |
 
 ## Health — *Ravindu*
 

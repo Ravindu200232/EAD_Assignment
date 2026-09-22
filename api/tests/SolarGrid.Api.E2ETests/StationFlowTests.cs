@@ -147,6 +147,40 @@ public class StationFlowTests
         Assert.Equal(StationStatus.Active, reactivated.Status);
     }
 
+    // A station that was never booked is deleted together with its slots.
+    [Fact]
+    public async Task DeleteStation_Unused_IsRemovedWithItsSlots()
+    {
+        var admin = await _factory.AdminClientAsync();
+        var station = await StationTestData.CreateAsync(admin);
+        var slot = await StationTestData.CreateSlotAsync(admin, station.Id, StationTestData.LocalToday().AddDays(1));
+
+        var response = await admin.DeleteAsync($"/api/stations/{station.Id}");
+
+        await response.ShouldHaveStatusAsync(HttpStatusCode.NoContent);
+        await (await admin.GetAsync($"/api/stations/{station.Id}")).ShouldHaveStatusAsync(HttpStatusCode.NotFound);
+        await (await admin.GetAsync($"/api/slots/{slot.Id}")).ShouldHaveStatusAsync(HttpStatusCode.NotFound);
+    }
+
+    // A station with booking history cannot be deleted, and Grid Operators cannot delete at all.
+    [Fact]
+    public async Task DeleteStation_WithHistoryOrByOperator_IsRefused()
+    {
+        var admin = await _factory.AdminClientAsync();
+        var station = await StationTestData.CreateAsync(admin);
+        await TestDb.InsertReservationAsync(_factory, "200034501234", ReservationStatus.Completed,
+            TimeSpan.FromDays(-2), 5, stationId: station.Id);
+
+        var withHistory = await admin.DeleteAsync($"/api/stations/{station.Id}");
+        var problem = await withHistory.ReadProblemAsync(HttpStatusCode.BadRequest);
+        Assert.Contains("Deactivate it instead", problem.Detail);
+
+        var operatorUser = await TestData.CreateStaffAsync(admin, UserRole.GridOperator);
+        var operatorClient = await _factory.ClientForAsync(operatorUser.Email, TestData.StaffPassword);
+        var byOperator = await operatorClient.DeleteAsync($"/api/stations/{station.Id}");
+        await byOperator.ShouldHaveStatusAsync(HttpStatusCode.Forbidden);
+    }
+
     // Prosumers never see inactive stations.
     [Fact]
     public async Task Prosumer_DoesNotSeeInactiveStations()

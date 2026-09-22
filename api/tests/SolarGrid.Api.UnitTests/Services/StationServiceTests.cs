@@ -12,6 +12,7 @@ namespace SolarGrid.Api.UnitTests.Services;
 public class StationServiceTests
 {
     private readonly IStationRepository _stations = Substitute.For<IStationRepository>();
+    private readonly ISlotRepository _slots = Substitute.For<ISlotRepository>();
     private readonly IReservationRepository _reservations = Substitute.For<IReservationRepository>();
     private readonly AppClock _clock = TestClock.Create().Clock;
     private readonly StationService _service;
@@ -21,7 +22,7 @@ public class StationServiceTests
     // Wires the service to fake repositories.
     public StationServiceTests()
     {
-        _service = new StationService(_stations, _reservations, _clock);
+        _service = new StationService(_stations, _slots, _reservations, _clock);
     }
 
     // A new station is active, uses an upper-case code and has every slot available.
@@ -191,6 +192,42 @@ public class StationServiceTests
 
         await Assert.ThrowsAsync<BusinessRuleException>(() => _service.ActivateAsync(TestStations.StationId));
         await Assert.ThrowsAsync<BusinessRuleException>(() => _service.DeactivateAsync("6aaa95c6e007313fe4c19998"));
+    }
+
+    // A station with any booking history is kept; only deactivation is allowed.
+    [Fact]
+    public async Task DeleteAsync_WithBookingHistory_Throws()
+    {
+        _stations.GetByIdAsync(TestStations.StationId).Returns(TestStations.Station());
+        _reservations.AnyForStationAsync(TestStations.StationId).Returns(true);
+
+        var error = await Assert.ThrowsAsync<BusinessRuleException>(() => _service.DeleteAsync(TestStations.StationId));
+
+        Assert.Contains("Deactivate it instead", error.Message);
+        await _slots.DidNotReceiveWithAnyArgs().DeleteByStationAsync(default!);
+        await _stations.DidNotReceiveWithAnyArgs().DeleteAsync(default!);
+    }
+
+    // A station that was never booked is removed with its empty slots.
+    [Fact]
+    public async Task DeleteAsync_UnusedStation_DeletesSlotsThenStation()
+    {
+        _stations.GetByIdAsync(TestStations.StationId).Returns(TestStations.Station());
+
+        await _service.DeleteAsync(TestStations.StationId);
+
+        Received.InOrder(() =>
+        {
+            _slots.DeleteByStationAsync(TestStations.StationId);
+            _stations.DeleteAsync(TestStations.StationId);
+        });
+    }
+
+    // Deleting an unknown station gives 404.
+    [Fact]
+    public async Task DeleteAsync_UnknownStation_ThrowsNotFound()
+    {
+        await Assert.ThrowsAsync<NotFoundException>(() => _service.DeleteAsync("6aaa95c6e007313fe4c19997"));
     }
 
     // Prosumers only get active stations, whatever filter they send.

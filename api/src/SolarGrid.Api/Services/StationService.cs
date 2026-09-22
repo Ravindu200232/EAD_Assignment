@@ -15,13 +15,15 @@ public class StationService : IStationService
     private const int MinOpenMinutes = 30;
 
     private readonly IStationRepository _stations;
+    private readonly ISlotRepository _slots;
     private readonly IReservationRepository _reservations;
     private readonly AppClock _clock;
 
-    // Needs the station and reservation stores and the clock.
-    public StationService(IStationRepository stations, IReservationRepository reservations, AppClock clock)
+    // Needs the station, slot and reservation stores and the clock.
+    public StationService(IStationRepository stations, ISlotRepository slots, IReservationRepository reservations, AppClock clock)
     {
         _stations = stations;
+        _slots = slots;
         _reservations = reservations;
         _clock = clock;
     }
@@ -161,6 +163,19 @@ public class StationService : IStationService
 
         await _stations.UpdateAsync(station);
         return station.ToResponse();
+    }
+
+    // Deletes a station that was never booked, together with its empty slots.
+    // Stations with booking history are kept for the records and can only be deactivated.
+    public async Task DeleteAsync(string id)
+    {
+        var station = await GetStationAsync(id);
+        if (await _reservations.AnyForStationAsync(station.Id))
+            throw new BusinessRuleException(
+                "This station has booking history and cannot be deleted. Deactivate it instead.");
+
+        await _slots.DeleteByStationAsync(station.Id);
+        await _stations.DeleteAsync(station.Id);
     }
 
     // Checks the weekly hours and turns them into stored entries.
