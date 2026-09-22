@@ -45,6 +45,65 @@ Test-Step "Staff users" {
     "$($page.total) staff accounts"
 }
 
+# PUT and DELETE on a slot that does not exist must reach the API (404), not WebDAV (405).
+Test-Step "PUT and DELETE reach the API" {
+    foreach ($method in "Put", "Delete") {
+        $body = if ($method -eq "Put") { '{"capacity":1,"isOpen":true}' } else { $null }
+        try {
+            Invoke-RestMethod "$BaseUrl/api/slots/000000000000000000000000" -Method $method `
+                -Headers $script:headers -ContentType "application/json" -Body $body | Out-Null
+            throw "$method was accepted for a slot that does not exist"
+        }
+        catch [System.Net.WebException] {
+            $code = [int]$_.Exception.Response.StatusCode
+            if ($code -ne 404) { throw "$method returned $code (405 means WebDAV is still active)" }
+        }
+    }
+    "both answered 404 by the API"
+}
+
+Test-Step "Public summary" {
+    $summary = Invoke-RestMethod "$BaseUrl/api/dashboard/public"
+    "$($summary.activeStations) active stations, $($summary.totalEnergyTradedKwh) kWh traded"
+}
+
+Test-Step "Staff dashboard" {
+    $summary = Invoke-RestMethod "$BaseUrl/api/dashboard/summary" -Headers $script:headers
+    "$($summary.pendingReservations) pending, $($summary.pendingActivations) activations waiting"
+}
+
+Test-Step "Prosumer list" {
+    $page = Invoke-RestMethod "$BaseUrl/api/prosumers?pageSize=5" -Headers $script:headers
+    "$($page.total) prosumers"
+}
+
+Test-Step "Station list" {
+    $stations = @(Invoke-RestMethod "$BaseUrl/api/stations" -Headers $script:headers)
+    if ($stations.Count -gt 0) { $script:firstStationId = $stations[0].id }
+    "$($stations.Count) stations"
+}
+
+Test-Step "Nearby stations (Malabe)" {
+    $nearby = @(Invoke-RestMethod "$BaseUrl/api/stations/nearby?lat=6.9147&lng=79.9729&radiusKm=50" -Headers $script:headers)
+    "$($nearby.Count) within 50 km"
+}
+
+Test-Step "Station slots" {
+    if (-not $script:firstStationId) { throw "no station to check" }
+    $slots = @(Invoke-RestMethod "$BaseUrl/api/stations/$($script:firstStationId)/slots" -Headers $script:headers)
+    "$($slots.Count) slots in the next 7 days"
+}
+
+Test-Step "Pending reservations" {
+    $page = Invoke-RestMethod "$BaseUrl/api/reservations?scope=pending&pageSize=5" -Headers $script:headers
+    "$($page.total) waiting for approval"
+}
+
+Test-Step "Reservation history" {
+    $page = Invoke-RestMethod "$BaseUrl/api/reservations?scope=history&pageSize=5" -Headers $script:headers
+    "$($page.total) finished bookings"
+}
+
 if ($script:failures -gt 0) {
     Write-Host "`n$($script:failures) check(s) failed." -ForegroundColor Red
     exit 1

@@ -123,11 +123,11 @@ Microsoft Learn articles are published under CC BY 4.0, with code samples under 
 
 | | |
 |---|---|
-| **What it does** | Lists IIS modules that do not work with ASP.NET Core (WebDAV is one of them) and shows how to remove a module in `web.config`. Without this, IIS can block PUT and DELETE requests. |
-| **Where we used it** | `api/src/SolarGrid.Api/web.config` |
-| **Source** | Microsoft Learn — *IIS modules with ASP.NET Core* |
-| **Link** | https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/modules |
-| **How much we used** | The `<remove name="..." />` element for the WebDAV module and handler. |
+| **What it does** | Explains that the IIS WebDAV module answers PUT and DELETE requests with "405 Method Not Allowed" before the API sees them, and that it should be removed for the site. The appcmd guide shows how to remove a module or handler for one site and how `/commit:apphost` writes the change to `applicationHost.config` when a section is locked. |
+| **Where we used it** | `deploy/iis/deploy-api.ps1` (`Remove-SiteEntry`, step 7), `docs/deployment.md` |
+| **Sources** | Microsoft Learn — *Troubleshoot Web API2 apps that work in Visual Studio and fail on a production IIS server*; Microsoft Learn — *Getting Started with AppCmd.exe*; Microsoft Learn — *IIS modules with ASP.NET Core* |
+| **Links** | https://learn.microsoft.com/en-us/aspnet/web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications · https://learn.microsoft.com/en-us/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe · https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/modules |
+| **How much we used** | The removal of the `WebDAVModule` module and `WebDAV` handler, and the appcmd `/-[name='…']` and `/commit:apphost` options. The check that runs it only when WebDAV is installed is our own. |
 | **Added by** | Ravindu |
 
 ## API-12 · Database indexes
@@ -140,3 +140,47 @@ Microsoft Learn articles are published under CC BY 4.0, with code samples under 
 | **Link** | https://www.mongodb.com/docs/drivers/csharp/current/indexes/ |
 | **How much we used** | `CreateIndexModel` with `Builders<T>.IndexKeys` (`Ascending`, `Geo2DSphere`) and `Unique = true`. Which fields are indexed is our own design. |
 | **Added by** | Ravindu |
+
+## API-13 · Adding up completed transfers (aggregation)
+
+| | |
+|---|---|
+| **What it does** | Explains MongoDB "aggregation pipelines", which filter documents (`$match`) and total them (`$group` with `$sum`) inside the database. |
+| **Where we used it** | `api/src/SolarGrid.Api/Repositories/ReservationRepository.cs` (`GetCompletedTotalsAsync`) |
+| **Sources** | MongoDB Docs — *Aggregation Pipeline Stages* (.NET/C# Driver); MongoDB Manual — *$group (aggregation stage)* |
+| **Links** | https://www.mongodb.com/docs/drivers/csharp/current/aggregation/stages/ · https://www.mongodb.com/docs/manual/reference/operator/aggregation/group/ |
+| **How much we used** | The `Aggregate().Match(...).Group(...)` builder calls. The totals we calculate (count and delivered kWh) are our own. |
+| **Added by** | Malith |
+
+## API-14 · Finding the nearest stations ($geoNear)
+
+| | |
+|---|---|
+| **What it does** | Describes MongoDB's `$geoNear` stage, which sorts places by distance from a GPS point, can limit the search radius (in metres) and returns each distance. It needs a 2dsphere index. |
+| **Where we used it** | `api/src/SolarGrid.Api/Repositories/StationRepository.cs` (`FindNearbyAsync`) |
+| **Sources** | MongoDB Manual — *$geoNear (aggregation stage)*; MongoDB Docs — *Aggregation Pipeline Stages* (.NET/C# Driver) |
+| **Links** | https://www.mongodb.com/docs/manual/reference/operator/aggregation/geoNear/ · https://www.mongodb.com/docs/drivers/csharp/current/aggregation/stages/ |
+| **How much we used** | The `$geoNear` options (`distanceField`, `maxDistance`, `spherical`, `query`) through the driver's `GeoNear` builder. Converting metres to kilometres and hiding inactive stations are our own. |
+| **Added by** | Nimthara |
+
+## API-15 · Never overbooking a slot (atomic update with a condition)
+
+| | |
+|---|---|
+| **What it does** | Explains that MongoDB changes a single document in one indivisible step, and that putting the expected value in the update filter prevents two people from overwriting each other. `$expr` lets a filter compare two fields of the same document (booked bays < capacity). |
+| **Where we used it** | `api/src/SolarGrid.Api/Repositories/SlotRepository.cs` (`TryTakeBayAsync`), `api/src/SolarGrid.Api/Repositories/ReservationRepository.cs` (`ReplaceIfStatusAsync`) |
+| **Sources** | MongoDB Manual — *Atomicity and Transactions*; MongoDB Manual — *$expr (query predicate operator)* |
+| **Links** | https://www.mongodb.com/docs/manual/core/write-operations-atomicity/ · https://www.mongodb.com/docs/manual/reference/operator/query/expr/ |
+| **How much we used** | The idea of a conditional single-document update. Applying it to battery bays and booking status changes is our own. |
+| **Added by** | Hamnad |
+
+## API-16 · Signing the booking QR code (HMAC)
+
+| | |
+|---|---|
+| **What it does** | HMAC-SHA256 creates a "signature" from data and a secret key; anyone without the key cannot make a valid signature. `FixedTimeEquals` compares signatures without leaking timing information. |
+| **Where we used it** | `api/src/SolarGrid.Api/Security/QrTokenService.cs` |
+| **Sources** | Microsoft Learn — *HMACSHA256 Class*; Microsoft Learn — *CryptographicOperations.FixedTimeEquals Method* |
+| **Links** | https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.hmacsha256 · https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.cryptographicoperations.fixedtimeequals |
+| **How much we used** | `HMACSHA256.HashData` and `CryptographicOperations.FixedTimeEquals`. The QR text format (`SSG1.id.nonce.signature`) and the nonce idea are our own design. |
+| **Added by** | Hamnad |
