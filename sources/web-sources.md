@@ -172,6 +172,54 @@ Microsoft Learn and MDN pages are published under Creative Commons licences; the
 | **Licence** | Apache-2.0 |
 | **Added by** | Ravindu |
 
+## WEB-15 · Maps that work without an API key (Leaflet)
+
+| | |
+|---|---|
+| **What it does** | Leaflet is a small library for interactive maps. We use it when no Google Maps key is set, or when Google Maps cannot be used: it draws the stations as pins, lets a pin be clicked or reached with the keyboard, and lets staff click the map or drag a pin to choose a station's GPS position. |
+| **Where we used it** | `web/src/components/maps/leafletSetup.js`, `LeafletStationMap.jsx`, `LeafletPickerMap.jsx`, `LeafletStationMap.test.jsx` |
+| **Source** | Leaflet — *API reference (1.9.4)*: `L.map`, `L.marker` (`title`, `alt`, `keyboard`, `draggable`), `L.divIcon`, `L.layerGroup`, `bindTooltip`, `fitBounds`, the map `click` and marker `dragend` events; *Accessibility* guide (every pin needs its own title) |
+| **Link** | https://leafletjs.com/reference.html · https://leafletjs.com/examples/accessibility/ |
+| **How much we used** | The library calls listed above. The clay pin design, the "choose a location" behaviour and the switch between map services are our own. We use plain Leaflet instead of the `react-leaflet` wrapper, because that wrapper's Hippocratic licence adds conditions we did not want in a university project. |
+| **Licence** | BSD-2-Clause |
+| **Added by** | Nimthara |
+
+## WEB-16 · OpenStreetMap map pictures and credit
+
+| | |
+|---|---|
+| **What it does** | The OpenStreetMap map pictures (tiles) behind the Leaflet maps, and the rules for using them: show the "© OpenStreetMap contributors" credit, use the official tile address, and do not download tiles in bulk. |
+| **Where we used it** | `web/src/components/maps/leafletSetup.js` (tile address and credit link), the offline note in `LeafletStationMap.jsx` and `LeafletPickerMap.jsx` |
+| **Source** | OpenStreetMap Foundation — *Tile Usage Policy*; OpenStreetMap — *Copyright and License* |
+| **Link** | https://operations.osmfoundation.org/policies/tiles/ · https://www.openstreetmap.org/copyright |
+| **How much we used** | The tile address `https://tile.openstreetmap.org/{z}/{x}/{y}.png` and the credit text with its link. The maps only load the tiles a person is looking at; nothing is downloaded in advance. |
+| **Licence** | Map data: Open Database License (ODbL). The tile service may be used under the policy above. |
+| **Added by** | Nimthara |
+
+## WEB-17 · Drawing booking QR codes (qrcode.react)
+
+| | |
+|---|---|
+| **What it does** | A React component that turns a text into a QR code picture (SVG). The booking page draws the signed code text that the API gives for an approved booking. |
+| **Where we used it** | `web/src/components/qr/QrCodeCard.jsx` |
+| **Source** | qrcode.react — README (`QRCodeSVG` and its `value`, `size`, `level`, `marginSize` and `title` props) |
+| **Link** | https://github.com/zpao/qrcode.react |
+| **How much we used** | One `QRCodeSVG` element with those props. The card around it, the booking details and the print and copy buttons are our own. |
+| **Licence** | ISC (the bundled QR generator is MIT) |
+| **Added by** | Hamnad |
+
+## WEB-18 · Hosting the portal files on IIS
+
+| | |
+|---|---|
+| **What it does** | IIS only sends files whose extension has a MIME type, and its `clientCache` setting decides the `Cache-Control` header. The deploy script adds missing types (such as `.woff2` for the fonts), turns caching off for the pages and lets the hashed files in `/assets` be cached for a year. |
+| **Where we used it** | `deploy/iis/deploy-web.ps1`, `deploy/iis/smoke-test-web.ps1`, `docs/deployment.md` (sections 5 and 6) |
+| **Source** | Microsoft Learn — IIS configuration reference: *Adding Static Content MIME Mappings `<mimeMap>`* and *Client Cache `<clientCache>`* (the `appcmd` examples); Vite — *Deploying a Static Site* (`npm run build` writes the app to `dist`) |
+| **Link** | https://learn.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap · https://learn.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/clientcache · https://vite.dev/guide/static-deploy |
+| **How much we used** | The `appcmd set config ... -section:system.webServer/staticContent` commands for a MIME type and for `cacheControlMode` (`DisableCache`, `UseMaxAge`) and `cacheControlMaxAge`. Checking first, writing to `applicationHost.config` and the smoke test are our own. |
+| **Licence** | Microsoft Learn documentation: Creative Commons Attribution 4.0; Vite documentation: MIT |
+| **Added by** | Ravindu |
+
 ## WEB-19 · Keyboard-friendly tabs
 
 | | |
@@ -193,6 +241,17 @@ Microsoft Learn and MDN pages are published under Creative Commons licences; the
 | **Link** | https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event |
 | **How much we used** | Listening for the event (a few lines). |
 | **Added by** | Ravindu |
+
+## WEB-21 · Printing a booking slip
+
+| | |
+|---|---|
+| **What it does** | `window.print()` opens the browser's print dialog, and CSS inside `@media print` decides what is printed. The booking page prints only the heading and the QR code card, so staff can hand the prosumer a paper slip. |
+| **Where we used it** | `web/src/components/qr/QrCodeCard.jsx` (Print button), `web/src/pages/reservations/ReservationDetailsPage.jsx` (`no-print` on the other cards), `web/src/styles/theme.css` (`@media print`) |
+| **Source** | MDN Web Docs — *Window: print() method*; *@media* (the `print` media type) |
+| **Link** | https://developer.mozilla.org/en-US/docs/Web/API/Window/print · https://developer.mozilla.org/en-US/docs/Web/CSS/@media#print |
+| **How much we used** | The `print()` call and a `print` media rule that hides everything marked `no-print`. Which parts of the page are printed is our own choice. |
+| **Added by** | Hamnad |
 
 ## WEB-22 · Reading QR codes with the camera (ZXing)
 
@@ -228,3 +287,95 @@ Microsoft Learn and MDN pages are published under Creative Commons licences; the
 | **How much we used** | The switch names `--use-fake-device-for-media-stream` and `--use-file-for-fake-video-capture`, and the Y4M header layout. The code that draws the QR code into video frames is our own. |
 | **Licence** | Chromium: BSD-3-Clause (we only used switch names, no code) |
 | **Added by** | Ravindu |
+
+## WEB-25 · "3 days ago" style times
+
+| | |
+|---|---|
+| **What it does** | `Intl.RelativeTimeFormat` writes how long ago something happened in plain words ("yesterday", "3 days ago"). |
+| **Where we used it** | `web/src/utils/format.js` (`formatTimeAgo`), shown on `web/src/pages/prosumers/PendingActivationsPage.jsx` |
+| **Source** | MDN Web Docs — *Intl.RelativeTimeFormat* |
+| **Link** | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat |
+| **How much we used** | The formatter with `numeric: 'auto'`. Choosing days, hours or minutes is our own. |
+| **Added by** | Malith |
+
+## WEB-26 · Refreshing dashboards only when they are visible
+
+| | |
+|---|---|
+| **What it does** | The Page Visibility API tells a page whether its browser tab is shown. The dashboards refresh their numbers on a timer only while someone can see them, and at once when the user comes back. |
+| **Where we used it** | `web/src/hooks/useAutoRefresh.js` (used by the dashboards and the menu counter) |
+| **Source** | MDN Web Docs — *Page Visibility API* |
+| **Link** | https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API |
+| **How much we used** | `document.visibilityState` and the `visibilitychange` event. The timer hook is our own. |
+| **Added by** | Malith |
+
+## WEB-27 · Scrolling to a section of the home page
+
+| | |
+|---|---|
+| **What it does** | `scrollIntoView` moves the page to an element. The "How it works" button uses it because the router already uses the `#` part of the address. |
+| **Where we used it** | `web/src/pages/home/HomePage.jsx` |
+| **Source** | MDN Web Docs — *Element: scrollIntoView() method* |
+| **Link** | https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView |
+| **How much we used** | One call with the `behavior` option; it jumps instead of gliding when the user asked for reduced motion. |
+| **Added by** | Malith |
+
+## WEB-28 · Google Maps in the web portal
+
+| | |
+|---|---|
+| **What it does** | The Google Maps JavaScript API shows the station map and the location chooser when a key is set in `web/.env.local`. The official loader downloads the map code only when a map is opened. Coloured "advanced marker" pins show each station, a click or drag reports the position, and a special callback tells us when Google refuses the key. |
+| **Where we used it** | `web/src/components/maps/googleMaps.js`, `mapProvider.js`, `GoogleStationMap.jsx`, `GooglePickerMap.jsx`, `web/.env.example` |
+| **Source** | Google Maps Platform documentation — *Load the Maps JavaScript API* (`@googlemaps/js-api-loader`, `importLibrary`), *Get started with advanced markers* (map ID, `DEMO_MAP_ID`), *Basic marker customization* (`PinElement` colours), *Advanced markers reference* (`gmp-click`, `gmp-dragend`, `gmpClickable`, `gmpDraggable`), *Events* (`gm_authFailure`), *Error messages* (`RefererNotAllowedMapError`), *API security best practices* (website and API restrictions) |
+| **Link** | https://developers.google.com/maps/documentation/javascript/load-maps-js-api · https://developers.google.com/maps/documentation/javascript/advanced-markers/start · https://developers.google.com/maps/documentation/javascript/advanced-markers/basic-customization · https://developers.google.com/maps/documentation/javascript/reference/advanced-markers · https://developers.google.com/maps/documentation/javascript/events · https://developers.google.com/maps/documentation/javascript/error-messages · https://developers.google.com/maps/api-security-best-practices |
+| **How much we used** | The loader set-up (`setOptions`, `importLibrary`), the map, marker and pin options, the two marker events and the `gm_authFailure` callback. Choosing between Google Maps and OpenStreetMap, switching over when Google fails, and keeping the key out of Git are our own. The key is restricted to our local web addresses and to the Maps JavaScript API. |
+| **Licence** | Documentation: Creative Commons Attribution 4.0, code samples Apache-2.0. The loader package is Apache-2.0. Using the maps follows the Google Maps Platform Terms of Service. |
+| **Added by** | Nimthara |
+
+## WEB-29 · Keeping a map failure inside the map (error boundary)
+
+| | |
+|---|---|
+| **What it does** | A React error boundary catches errors thrown while a part of the page is drawn. If the Google map code fails, only the map is replaced (by OpenStreetMap) instead of the whole page showing the error screen. |
+| **Where we used it** | `web/src/components/maps/MapErrorBoundary.jsx`, used by `StationMap.jsx` and `PickerMap.jsx` |
+| **Source** | React documentation — *Component*: "Catching rendering errors with an error boundary" (`static getDerivedStateFromError`, `componentDidCatch`) |
+| **Link** | https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary |
+| **How much we used** | The class shape with the two methods (React has no function-component version). What the boundary shows and the switch to OpenStreetMap are our own. |
+| **Licence** | Documentation: Creative Commons Attribution 4.0; React is MIT |
+| **Added by** | Nimthara |
+
+## WEB-30 · Switches and bay meters for screen readers
+
+| | |
+|---|---|
+| **What it does** | The WAI-ARIA patterns say how an on/off switch and a meter should be marked up so screen readers announce them properly ("switch, on" and "8 of 12 bays available"). |
+| **Where we used it** | `web/src/components/ui/Switch.jsx` (opening days, open/closed slots), `web/src/pages/stations/BayMeter.jsx` (battery bays) |
+| **Source** | W3C WAI — ARIA Authoring Practices Guide: *Switch pattern* and *Meter pattern* |
+| **Link** | https://www.w3.org/WAI/ARIA/apg/patterns/switch/ · https://www.w3.org/WAI/ARIA/apg/patterns/meter/ |
+| **How much we used** | The roles and attributes: a `<button>` with `role="switch"` and `aria-checked`; `role="meter"` with `aria-valuenow`, `aria-valuemin`, `aria-valuemax` and `aria-valuetext`. The clay look is our own. |
+| **Licence** | W3C Software and Document License |
+| **Added by** | Nimthara |
+
+## WEB-31 · Keeping the chosen list in the address
+
+| | |
+|---|---|
+| **What it does** | React Router's `useSearchParams` reads and changes the `?tab=` part of the address, so a dashboard number can open the right booking list and the browser's back button works. |
+| **Where we used it** | `web/src/pages/reservations/ReservationsPage.jsx` |
+| **Source** | React Router — *useSearchParams* (the `setSearchParams` navigate options, such as `replace`, are listed in the library's own type definition `SetURLSearchParams`) |
+| **Link** | https://reactrouter.com/api/hooks/useSearchParams |
+| **How much we used** | Reading `tab` and setting it with `{ replace: true }`. The tab names and what each tab asks the API for are our own. |
+| **Licence** | MIT |
+| **Added by** | Hamnad |
+
+## WEB-32 · Copying the QR code text
+
+| | |
+|---|---|
+| **What it does** | `navigator.clipboard.writeText()` puts text on the clipboard. Staff can copy a booking's code text and paste it on the check-in page when the prosumer cannot show the QR code. It only works on secure pages (such as `localhost`), so the page shows a message when copying is not allowed. |
+| **Where we used it** | `web/src/components/qr/QrCodeCard.jsx` |
+| **Source** | MDN Web Docs — *Clipboard: writeText() method* |
+| **Link** | https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText |
+| **How much we used** | One `writeText` call with error handling. |
+| **Added by** | Hamnad |
