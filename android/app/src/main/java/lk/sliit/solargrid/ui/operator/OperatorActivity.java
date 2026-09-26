@@ -13,7 +13,6 @@ import lk.sliit.solargrid.R;
 import lk.sliit.solargrid.databinding.ActivityOperatorBinding;
 import lk.sliit.solargrid.ui.common.AccountFragment;
 import lk.sliit.solargrid.ui.common.BaseActivity;
-import lk.sliit.solargrid.ui.common.PlaceholderFragment;
 
 public class OperatorActivity extends BaseActivity {
 
@@ -90,8 +89,8 @@ public class OperatorActivity extends BaseActivity {
     /** The screen behind each tab. */
     private Fragment fragmentFor(int itemId) {
         if (itemId == R.id.tab_today) {
-            // The bookings of this station today.
-            return PlaceholderFragment.of(R.string.operator_today_screen);
+            // The bookings of the day, with cancelling for a prosumer.
+            return new TodayFragment();
         }
         if (itemId == R.id.tab_bays) {
             // The battery bay counter.
