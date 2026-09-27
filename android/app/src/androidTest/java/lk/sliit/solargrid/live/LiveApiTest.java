@@ -1,0 +1,179 @@
+package lk.sliit.solargrid.live;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
+import android.Manifest;
+
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.espresso.IdlingRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.rule.GrantPermissionRule;
+
+import com.google.android.gms.maps.model.LatLng;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.Locale;
+
+import lk.sliit.solargrid.AppContainer;
+import lk.sliit.solargrid.BuildConfig;
+import lk.sliit.solargrid.R;
+import lk.sliit.solargrid.testing.ApiIdlingResource;
+import lk.sliit.solargrid.ui.auth.LoginActivity;
+import lk.sliit.solargrid.ui.auth.RegisterActivity;
+import lk.sliit.solargrid.util.LocalNetwork;
+import lk.sliit.solargrid.util.LocationFinder;
+
+@LiveApi
+@LargeTest
+@RunWith(AndroidJUnit4.class)
+public class LiveApiTest {
+
+    /** The emulator reaches the computer that runs it on 10.0.2.2. */
+    private static final String DEFAULT_API = "http://10.0.2.2:5090/";
+
+    private final ApiIdlingResource idling = new ApiIdlingResource();
+
+    /**
+     * The test API lives on the computer, which Android 17 counts as the local
+     * network; the map needs the location as well.
+     */
+    @Rule
+    public GrantPermissionRule permissions = GrantPermissionRule.grant(LocalNetwork.PERMISSION,
+            Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION);
+
+    /** Points the app at the test API and signs nobody in. */
+    @Before
+    public void setUp() {
+        String baseUrl = InstrumentationRegistry.getArguments().getString("apiBaseUrl", DEFAULT_API);
+        AppContainer.get().useBaseUrl(baseUrl);
+        AppContainer.get().session().clear();
+        IdlingRegistry.getInstance().register(idling);
+    }
+
+    /** Puts the app back to its normal address and location finder. */
+    @After
+    public void tearDown() {
+        AppContainer.get().session().clear();
+        AppContainer.get().useBaseUrl(BuildConfig.API_BASE_URL);
+        AppContainer.get().useLocationFinder(new LocationFinder.Fused());
+        IdlingRegistry.getInstance().unregister(idling);
+    }
+
+    /** The demo prosumer signs in and reaches the prosumer home. */
+    @Test
+    public void prosumerSignsIn() {
+        ActivityScenario.launch(LoginActivity.class);
+        signIn("kasun@example.com", "Prosumer@123");
+
+        onView(withId(R.id.bottom_nav)).check(matches(isDisplayed()));
+        onView(withId(R.id.tab_bookings)).check(matches(isDisplayed()));
+    }
+
+    /** The demo Grid Operator reaches the scanning screen. */
+    @Test
+    public void operatorSignsIn() {
+        ActivityScenario.launch(LoginActivity.class);
+        signIn("operator@solargrid.lk", "Operator@123");
+
+        onView(withId(R.id.scan_action)).check(matches(isDisplayed()));
+    }
+
+    /** An account still waiting for activation is refused by the API. */
+    @Test
+    public void pendingAccountIsRefused() {
+        ActivityScenario.launch(LoginActivity.class);
+        signIn("tharindu@example.com", "Prosumer@123");
+
+        onView(withId(R.id.login_notice)).check(matches(isDisplayed()));
+    }
+
+    /** A deactivated account is refused as well. */
+    @Test
+    public void deactivatedAccountIsRefused() {
+        ActivityScenario.launch(LoginActivity.class);
+        signIn("dilani@example.com", "Prosumer@123");
+
+        onView(withId(R.id.login_notice)).check(matches(isDisplayed()));
+    }
+
+    /** A wrong password never reaches a home screen. */
+    @Test
+    public void wrongPasswordIsRefused() {
+        ActivityScenario.launch(LoginActivity.class);
+        signIn("kasun@example.com", "WrongPassword1");
+
+        onView(withId(R.id.login_notice)).check(matches(isDisplayed()));
+        onView(withId(R.id.login_submit)).check(matches(isDisplayed()));
+    }
+
+    /**
+     * A real sign-up creates an account that must wait for the
+     * Backoffice, so signing in with it straight away is refused.
+     */
+    @Test
+    public void signUpWaitsForTheBackoffice() {
+        // A new NIC each run: year 1999, day 123 of the year, then five digits.
+        String digits = String.format(Locale.ROOT, "%05d", System.currentTimeMillis() % 100000);
+        String nic = "1999123" + digits;
+        String email = "android" + digits + "@example.com";
+
+        ActivityScenario.launch(RegisterActivity.class);
+        type(R.id.register_nic, nic);
+        type(R.id.register_name, "Android Test Prosumer");
+        type(R.id.register_email, email);
+        type(R.id.register_phone, "0712345678");
+        type(R.id.register_address, "No. 1, Test Road, Malabe");
+        type(R.id.register_password, "Solar2026x");
+        type(R.id.register_confirm, "Solar2026x");
+        onView(withId(R.id.register_submit)).perform(scrollTo(), click());
+
+        onView(withText(R.string.registered_title)).check(matches(isDisplayed()));
+        onView(withId(R.id.registered_login)).perform(click());
+
+        signIn(email, "Solar2026x");
+        onView(withId(R.id.login_notice)).check(matches(isDisplayed()));
+    }
+
+    /**
+     * The nearby search of the real api finds the demo stations
+     * around Malabe, and the list view shows them with their free bays.
+     */
+    @Test
+    public void prosumerSeesNearbyStations() {
+        AppContainer.get().useLocationFinder((context, answer) -> answer.onFound(new LatLng(6.9147, 79.9729)));
+        ActivityScenario.launch(LoginActivity.class);
+        signIn("kasun@example.com", "Prosumer@123");
+
+        onView(withId(R.id.tab_map)).perform(click());
+        onView(withId(R.id.stations_show_list)).perform(click());
+
+        onView(withText("SLIIT Malabe Campus Microgrid")).check(matches(isDisplayed()));
+    }
+
+    /** Scrolls to a box and types into it. */
+    private static void type(int boxId, String text) {
+        onView(withId(boxId)).perform(scrollTo(), replaceText(text), closeSoftKeyboard());
+    }
+
+    /** Fills the form and taps the button. */
+    private void signIn(String username, String password) {
+        onView(withId(R.id.login_username)).perform(replaceText(username), closeSoftKeyboard());
+        onView(withId(R.id.login_password)).perform(replaceText(password), closeSoftKeyboard());
+        onView(withId(R.id.login_submit)).perform(click());
+    }
+}
