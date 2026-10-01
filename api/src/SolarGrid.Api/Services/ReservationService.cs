@@ -1,3 +1,15 @@
+/*
+ * File:    ReservationService.cs
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Business rules for energy reservations:
+ *          - bookings start in the future and at most 7 days ahead
+ *          - changes and cancellations need at least 12 hours' notice
+ *          - one bay per booking, taken atomically so a slot is never overbooked
+ *          - a prosumer cannot hold two bookings at the same time
+ *          - a changed booking needs approval again and gets a new QR code
+ *          - prosumers only see and change their own bookings
+ */
 using System.Security.Cryptography;
 using MongoDB.Bson;
 using SolarGrid.Api.Common;

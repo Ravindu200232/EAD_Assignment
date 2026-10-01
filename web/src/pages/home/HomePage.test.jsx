@@ -1,3 +1,9 @@
+/*
+ * File:    HomePage.test.jsx
+ * Module:  Dashboards (public home page) - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the live numbers, the offline message and the links to login.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { getPublicSummary } from '../../api/dashboard'

@@ -1,3 +1,9 @@
+/*
+ * File:    StationFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Nimthara
+ * Purpose: Station management, the nearby search, the deactivation rule and deletion over real HTTP calls.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.E2ETests.Infrastructure;

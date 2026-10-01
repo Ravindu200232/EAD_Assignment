@@ -1,3 +1,11 @@
+/*
+ * File:    checkin.spec.js
+ * Module:  Operator Check-in - end-to-end tests
+ * Owner:   Ravindu
+ * Purpose: A Grid Operator checks booking QR codes (typed, USB scanner or a
+ *          pretend webcam) and completes an energy transfer. Forged and
+ *          early codes are refused with the API's reason.
+ */
 import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'

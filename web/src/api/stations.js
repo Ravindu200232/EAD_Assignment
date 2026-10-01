@@ -1,3 +1,10 @@
+/*
+ * File:    stations.js
+ * Module:  Microgrid Stations
+ * Owner:   Nimthara
+ * Purpose: Calls for solar battery stations: list, details, create, update,
+ *          weekly schedule, battery bays, activate, deactivate and delete.
+ */
 import client from './client'
 
 const path = (id) => `/stations/${encodeURIComponent(id)}`

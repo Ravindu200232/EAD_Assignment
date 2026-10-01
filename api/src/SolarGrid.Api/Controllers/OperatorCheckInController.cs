@@ -1,3 +1,10 @@
+/*
+ * File:    OperatorCheckInController.cs
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: HTTP endpoints used by Grid Operators at the station: verify a
+ *          prosumer's QR code and finish the energy transfer.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Dtos;

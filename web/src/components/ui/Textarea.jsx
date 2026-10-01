@@ -1,3 +1,9 @@
+/*
+ * File:    Textarea.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Recessed multi-line text box, used for reasons and scanned QR text.
+ */
 import { cn } from '../../utils/cn'
 import { useFieldProps } from './fieldContext'
 

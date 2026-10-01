@@ -1,3 +1,9 @@
+/*
+ * File:    AuthService.cs
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Login rules for all three roles. Only active accounts receive a token.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;

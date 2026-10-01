@@ -1,3 +1,9 @@
+/*
+ * File:    Toast.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Draws the toast messages in a corner of the screen.
+ */
 import { CircleAlert, CircleCheck, Info, X } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import IconButton from './IconButton'

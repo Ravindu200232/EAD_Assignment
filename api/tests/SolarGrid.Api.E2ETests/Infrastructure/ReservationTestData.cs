@@ -1,3 +1,9 @@
+/*
+ * File:    ReservationTestData.cs
+ * Module:  E2E Tests
+ * Owner:   Hamnad
+ * Purpose: Sets up a station, slots and a prosumer, and makes bookings through the real API.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 

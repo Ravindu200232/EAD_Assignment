@@ -1,3 +1,9 @@
+/*
+ * File:    Alert.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Inline message box for errors, warnings, tips and success notes.
+ */
 import { CircleAlert, CircleCheck, Info, TriangleAlert } from 'lucide-react'
 import { cn } from '../../utils/cn'
 

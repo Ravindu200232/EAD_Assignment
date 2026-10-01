@@ -1,3 +1,9 @@
+/*
+ * File:    HttpHelpers.cs
+ * Module:  E2E Tests
+ * Owner:   Ravindu
+ * Purpose: Small helpers for JSON calls, logging in and checking status codes.
+ */
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;

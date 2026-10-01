@@ -1,3 +1,9 @@
+/*
+ * File:    SlotsController.cs
+ * Module:  Energy Slots
+ * Owner:   Nimthara
+ * Purpose: HTTP endpoints for the bookable energy slots of each station.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Dtos;

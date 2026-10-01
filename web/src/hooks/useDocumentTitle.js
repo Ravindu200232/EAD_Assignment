@@ -1,3 +1,9 @@
+/*
+ * File:    useDocumentTitle.js
+ * Module:  Core hooks
+ * Owner:   Ravindu
+ * Purpose: Sets the browser tab title for the current page.
+ */
 import { useEffect } from 'react'
 
 export const APP_NAME = 'Smart Solar Microgrid'

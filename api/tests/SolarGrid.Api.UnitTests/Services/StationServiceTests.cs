@@ -1,3 +1,9 @@
+/*
+ * File:    StationServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Nimthara
+ * Purpose: Rules for creating, updating, deactivating, deleting and searching stations.
+ */
 using NSubstitute;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;

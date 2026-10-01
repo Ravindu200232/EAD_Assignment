@@ -1,3 +1,9 @@
+/*
+ * File:    AuthServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: Login and password-change rules.
+ */
 using NSubstitute;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;

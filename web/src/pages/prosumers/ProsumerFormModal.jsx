@@ -1,3 +1,10 @@
+/*
+ * File:    ProsumerFormModal.jsx
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Create a prosumer account for someone at the office, or edit a
+ *          prosumer's details. The NIC is the account key and never changes.
+ */
 import { useState } from 'react'
 import { Save } from 'lucide-react'
 import { getErrorMessage, getFieldErrors } from '../../api/client'

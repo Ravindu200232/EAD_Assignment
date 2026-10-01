@@ -1,3 +1,9 @@
+/*
+ * File:    ICheckInService.cs
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: QR verification and energy transfer completion for Grid Operators.
+ */
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Security;
 

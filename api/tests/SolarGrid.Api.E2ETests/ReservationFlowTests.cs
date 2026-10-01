@@ -1,3 +1,9 @@
+/*
+ * File:    ReservationFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Hamnad
+ * Purpose: The booking workflow and its rules over real HTTP calls and a real database.
+ */
 using System.Net;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
@@ -17,7 +23,7 @@ public class ReservationFlowTests
         _factory = factory;
     }
 
-    // End-to-end booking lifecycle including modification and cancellation.
+    // Book -> change -> cancel, with the slot's bay count following along.
     [Fact]
     public async Task Prosumer_BooksChangesAndCancels()
     {

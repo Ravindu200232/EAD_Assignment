@@ -1,3 +1,9 @@
+/*
+ * File:    Spinner.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Small loading ring, plus a full-area loader for pages that are still loading.
+ */
 import { cn } from '../../utils/cn'
 
 const SIZES = {

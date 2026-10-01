@@ -1,3 +1,10 @@
+/*
+ * File:    slots.js
+ * Module:  Energy Slots
+ * Owner:   Nimthara
+ * Purpose: Calls for the bookable time slots of a station. Dates are Sri Lanka
+ *          dates ("YYYY-MM-DD") and times are "HH:mm"; answers use UTC times.
+ */
 import client from './client'
 
 // Slots of a station between two dates (default: today and the next 6 days).

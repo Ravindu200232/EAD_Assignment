@@ -1,3 +1,10 @@
+/*
+ * File:    useApi.js
+ * Module:  Core hooks
+ * Owner:   Ravindu
+ * Purpose: Loads data from the API and keeps loading, error and data state,
+ *          so pages do not repeat the same useEffect code.
+ */
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getErrorMessage } from '../api/client'
 

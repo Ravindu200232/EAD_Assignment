@@ -1,3 +1,11 @@
+/*
+ * File:    screens-reservations.spec.js
+ * Module:  Energy Reservations - report screenshots
+ * Owner:   Hamnad
+ * Purpose: Screenshots of the booking list, the booking wizard, an approved
+ *          booking with its QR code and a pending booking (run with
+ *          npm run e2e:screens).
+ */
 import { expect, test } from '@playwright/test'
 import { apiLogin, findReservation, loginAs } from './helpers'
 import { screenTests, shoot } from './screens'

@@ -1,3 +1,10 @@
+/*
+ * File:    PageHeader.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Title block at the top of every signed-in page. It also sets the
+ *          browser tab title.
+ */
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router'
 import { useDocumentTitle } from '../../hooks/useDocumentTitle'

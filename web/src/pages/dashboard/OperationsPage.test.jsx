@@ -1,3 +1,10 @@
+/*
+ * File:    OperationsPage.test.jsx
+ * Module:  Dashboards - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the Grid Operator page: today's bookings in time order,
+ *          hidden cancelled bookings and the check-in shortcut.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { getBookingsForDay, getStaffSummary } from '../../api/dashboard'
@@ -9,6 +16,7 @@ import OperationsPage from './OperationsPage'
 
 vi.mock('../../api/auth', () => ({ login: vi.fn(), getCurrentUser: vi.fn(() => new Promise(() => {})), changePassword: vi.fn() }))
 vi.mock('../../api/dashboard', () => ({ getPublicSummary: vi.fn(), getStaffSummary: vi.fn(), getBookingsForDay: vi.fn() }))
+vi.mock('../../api/stations', () => ({ listStations: vi.fn(async () => []), setBatterySlots: vi.fn() }))
 
 const todays = [
   booking({ id: 'late', referenceNo: 'RSV-LATE', prosumerName: 'Late Booking', startTime: '2026-09-17T10:30:00Z', status: 'Pending' }),

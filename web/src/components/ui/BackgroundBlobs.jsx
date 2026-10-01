@@ -1,3 +1,12 @@
+/*
+ * File:    BackgroundBlobs.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Large, blurred colour blobs that drift slowly behind every screen,
+ *          so the glass cards have soft light behind them.
+ * Source:  WEB-01 (floating background blobs).
+ */
+
 // Fixed layer of animated blobs behind the page content.
 export default function BackgroundBlobs() {
   return (

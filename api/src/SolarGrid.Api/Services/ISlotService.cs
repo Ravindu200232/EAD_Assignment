@@ -1,3 +1,9 @@
+/*
+ * File:    ISlotService.cs
+ * Module:  Energy Slots
+ * Owner:   Nimthara
+ * Purpose: Creation and maintenance of bookable energy slots.
+ */
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Security;
 

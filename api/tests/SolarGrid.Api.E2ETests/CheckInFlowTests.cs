@@ -1,3 +1,10 @@
+/*
+ * File:    CheckInFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Ravindu
+ * Purpose: The full journey from mobile sign-up to a completed energy transfer,
+ *          and the QR checks an operator relies on at the station.
+ */
 using System.Net;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
@@ -17,20 +24,20 @@ public class CheckInFlowTests
         _factory = factory;
     }
 
-    // Complete end-to-end booking and check-in flow.
+    // Sign-up -> activation -> station and slot -> map -> booking -> approval -> QR -> check-in -> history.
     [Fact]
     public async Task FullJourney_FromSignUpToCompletedTransfer()
     {
         var anonymous = _factory.CreateClient();
         var admin = await _factory.AdminClientAsync();
 
-        // Prosumer signs up and Backoffice activates account.
+        // 1. A prosumer signs up in the mobile app and Backoffice activates the account.
         var prosumer = await (await anonymous.PostJsonAsync("/api/prosumers/register", ProsumerTestData.NewRegistration()))
             .ReadAsync<UserResponse>(HttpStatusCode.Created);
         await (await admin.PostAsync($"/api/prosumers/{prosumer.Nic}/activate", null)).ShouldHaveStatusAsync(HttpStatusCode.OK);
         var prosumerClient = await _factory.ClientForAsync(prosumer.Email, ProsumerTestData.Password);
 
-        // Register station and open an upcoming slot.
+        // 2. Backoffice registers a station and a Grid Operator opens a slot that starts soon.
         var lat = 9.0 + Random.Shared.NextDouble() / 2;
         var lng = 80.0 + Random.Shared.NextDouble() / 4;
         var station = await StationTestData.CreateAsync(admin, StationTestData.NewStation(lat, lng));
@@ -38,18 +45,18 @@ public class CheckInFlowTests
         var operatorClient = await _factory.ClientForAsync(operatorUser.Email, TestData.StaffPassword);
         var slot = await ReservationTestData.CreateSoonSlotAsync(operatorClient, station.Id);
 
-        // Prosumer finds station and books the slot.
+        // 3. The prosumer finds the station on the map and books the slot.
         var nearbyUrl = FormattableString.Invariant($"/api/stations/nearby?lat={lat}&lng={lng}&radiusKm=1");
         var nearby = await (await prosumerClient.GetAsync(nearbyUrl)).ReadAsync<List<NearbyStationResponse>>();
         Assert.Contains(nearby, s => s.Id == station.Id);
         var booking = await ReservationTestData.BookAsync(prosumerClient, slot.Id, energyKwh: 8);
 
-        // Operator approves booking and prosumer retrieves QR code.
+        // 4. The operator approves the booking and the prosumer opens the QR code.
         await (await operatorClient.PostAsync($"/api/reservations/{booking.Id}/approve", null))
             .ShouldHaveStatusAsync(HttpStatusCode.OK);
         var qr = await (await prosumerClient.GetAsync($"/api/reservations/{booking.Id}/qr")).ReadAsync<QrCodeResponse>();
 
-        // Operator scans QR code and completes energy transfer.
+        // 5. At the station the operator scans the code and finishes the transfer.
         var check = await (await operatorClient.PostJsonAsync("/api/checkin/verify", new { payload = qr.Payload }))
             .ReadAsync<CheckInResponse>();
         Assert.True(check.CanComplete);
@@ -62,7 +69,7 @@ public class CheckInFlowTests
         Assert.Equal(7.25, completed.DeliveredKwh);
         Assert.Equal(operatorUser.Nic, completed.CompletedBy);
 
-        // Completed booking is reflected in history and dashboard.
+        // 6. The booking shows in the prosumer's history and dashboard; its bay stays used.
         var history = await (await prosumerClient.GetAsync("/api/reservations?scope=history"))
             .ReadAsync<PagedResult<ReservationResponse>>();
         Assert.Contains(history.Items, r => r.Id == booking.Id && r.Status == ReservationStatus.Completed);
@@ -72,7 +79,7 @@ public class CheckInFlowTests
         Assert.Equal(7.25, dashboard.TotalDeliveredKwh);
         Assert.Equal(1, (await ReservationTestData.GetSlotAsync(admin, slot.Id)).BookedCount);
 
-        // Verify that used QR code cannot be reused.
+        // 7. The same code cannot be used a second time.
         var again = await (await operatorClient.PostJsonAsync("/api/checkin/verify", new { payload = qr.Payload }))
             .ReadAsync<CheckInResponse>();
         Assert.False(again.CanComplete);

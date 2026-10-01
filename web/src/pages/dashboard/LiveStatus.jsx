@@ -1,3 +1,9 @@
+/*
+ * File:    LiveStatus.jsx
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: "Updated at" time and a refresh button for the live dashboards.
+ */
 import { RefreshCw } from 'lucide-react'
 import Button from '../../components/ui/Button'
 import { cn } from '../../utils/cn'

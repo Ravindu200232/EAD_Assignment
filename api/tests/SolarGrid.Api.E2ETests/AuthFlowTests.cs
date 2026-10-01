@@ -1,3 +1,9 @@
+/*
+ * File:    AuthFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Ravindu
+ * Purpose: Login, tokens and role checks over real HTTP calls.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.E2ETests.Infrastructure;

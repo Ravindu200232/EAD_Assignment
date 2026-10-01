@@ -1,3 +1,11 @@
+/*
+ * File:    DataTable.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: List of records. Wide screens get a table; phones get one card per
+ *          record so nothing needs sideways scrolling. Loading, error and
+ *          empty states are handled here so every list behaves the same.
+ */
 import { RefreshCw } from 'lucide-react'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { cn } from '../../utils/cn'

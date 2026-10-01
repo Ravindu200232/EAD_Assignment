@@ -1,3 +1,12 @@
+/*
+ * File:    screens.js
+ * Module:  End-to-end tests (report screenshots)
+ * Owner:   Ravindu
+ * Purpose: Shared helpers for the screenshot run (npm run e2e:screens).
+ *          Every screenshot test runs once at desktop size and once at phone
+ *          size, and saves full-page images to docs/screenshots/web/.
+ * Source:  WEB-13 (Playwright screenshots, tags and test.use).
+ */
 import { mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'

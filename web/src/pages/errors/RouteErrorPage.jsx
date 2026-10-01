@@ -1,3 +1,11 @@
+/*
+ * File:    RouteErrorPage.jsx
+ * Module:  Core pages
+ * Owner:   Ravindu
+ * Purpose: Catches unexpected errors while a page loads or draws, so the user
+ *          sees a friendly screen instead of a blank page.
+ * Source:  WEB-04 (React Router errorElement and useRouteError).
+ */
 import { ServerCrash } from 'lucide-react'
 import { isRouteErrorResponse, useRouteError } from 'react-router'
 import Button from '../../components/ui/Button'

@@ -1,3 +1,13 @@
+/*
+ * File:    SlotService.cs
+ * Module:  Energy Slots
+ * Owner:   Nimthara
+ * Purpose: Business rules for energy slots:
+ *          - slots are in the future, inside the station's opening hours and never overlap
+ *          - capacity is limited by the station's available battery slots
+ *          - booked slots cannot be closed, deleted or shrunk below their bookings
+ *          - prosumers only see open future slots with free bays
+ */
 using MongoDB.Bson;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;

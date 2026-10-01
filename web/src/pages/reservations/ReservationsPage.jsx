@@ -1,3 +1,13 @@
+/*
+ * File:    ReservationsPage.jsx
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Staff view of all energy bookings: tabs for pending, current and
+ *          past bookings, filters (station, status, prosumer NIC, dates),
+ *          search and paging. Pending bookings can be approved or rejected
+ *          straight from the list.
+ * Source:  WEB-31 (React Router useSearchParams).
+ */
 import { useId, useState } from 'react'
 import { CalendarClock, CalendarPlus, FilterX, SlidersHorizontal } from 'lucide-react'
 import { Link, useSearchParams } from 'react-router'

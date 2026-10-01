@@ -1,3 +1,10 @@
+/*
+ * File:    ToastContext.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Short pop-up messages ("Station saved") that disappear by themselves.
+ * Source:  WEB-06 (React context).
+ */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import ToastViewport from '../components/ui/Toast'
 

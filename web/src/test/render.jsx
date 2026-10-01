@@ -1,3 +1,11 @@
+/*
+ * File:    render.jsx
+ * Module:  Unit tests
+ * Owner:   Ravindu
+ * Purpose: Helpers that draw a page with the same providers as the real app
+ *          (session, toasts, router) and sample staff users.
+ * Source:  WEB-12 (Testing Library render), WEB-04 (memory router).
+ */
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryRouter } from 'react-router'

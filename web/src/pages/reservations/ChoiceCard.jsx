@@ -1,3 +1,11 @@
+/*
+ * File:    ChoiceCard.jsx
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: A clay card that works as a radio button, used by the booking
+ *          wizard for prosumers, stations, days, slots and the trade type.
+ *          It is a real radio input, so arrow keys and screen readers work.
+ */
 import { useId } from 'react'
 import { cn } from '../../utils/cn'
 

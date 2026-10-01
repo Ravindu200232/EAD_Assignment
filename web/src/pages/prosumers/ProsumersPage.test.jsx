@@ -1,3 +1,10 @@
+/*
+ * File:    ProsumersPage.test.jsx
+ * Module:  Prosumer Accounts - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the prosumer list, the status filter, role-based buttons
+ *          (only Backoffice activates) and creating an account.
+ */
 import { screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createProsumer, deactivateProsumer, listProsumers } from '../../api/prosumers'

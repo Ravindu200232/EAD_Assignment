@@ -1,3 +1,11 @@
+/*
+ * File:    IconOrb.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Rounded gradient tile that holds an icon. Colours vary to add
+ *          visual interest, as the design system asks.
+ * Source:  WEB-01 (icon orbs), WEB-08 (Lucide icons).
+ */
 import { cn } from '../../utils/cn'
 import { ORB_COLORS } from './styles'
 

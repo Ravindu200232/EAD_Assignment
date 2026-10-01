@@ -1,3 +1,10 @@
+/*
+ * File:    ApiStatus.jsx
+ * Module:  Core layout
+ * Owner:   Ravindu
+ * Purpose: Small status light in the top bar that shows whether the API and
+ *          the database are reachable. Helpful when IIS or MongoDB is down.
+ */
 import { useEffect, useState } from 'react'
 import { API_URL } from '../api/client'
 import { getHealth } from '../api/health'

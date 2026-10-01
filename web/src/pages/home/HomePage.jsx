@@ -1,3 +1,12 @@
+/*
+ * File:    HomePage.jsx
+ * Module:  Dashboards (public home page)
+ * Owner:   Malith
+ * Purpose: The start page anyone can open: what the system does, live
+ *          numbers from the microgrid, how trading works and what each
+ *          type of user can do.
+ * Source:  WEB-01 (claymorphism hero, bento grid and stat orbs).
+ */
 import {
   ArrowDown,
   BatteryCharging,

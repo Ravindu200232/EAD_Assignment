@@ -1,3 +1,9 @@
+/*
+ * File:    DashboardDtos.cs
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Summary numbers and short booking lists for the web and mobile dashboards.
+ */
 using SolarGrid.Api.Models;
 
 namespace SolarGrid.Api.Dtos;

@@ -1,3 +1,9 @@
+/*
+ * File:    TestData.cs
+ * Module:  E2E Tests
+ * Owner:   Ravindu
+ * Purpose: Unique NICs, emails and phone numbers so tests never clash with each other.
+ */
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;
 

@@ -1,3 +1,13 @@
+/*
+ * File:    googleMaps.js
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Loads the Google Maps JavaScript API once and offers small helpers
+ *          for the portal's maps: the start view, coloured station pins and
+ *          reading coordinates. Failures switch the pages to OpenStreetMap.
+ * Source:  WEB-28 (Google Maps JavaScript API: loader, advanced markers,
+ *          authentication errors).
+ */
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader'
 import { GOOGLE_MAPS_KEY, GOOGLE_MAP_ID, fallBackToOpenStreetMap } from './mapProvider'
 

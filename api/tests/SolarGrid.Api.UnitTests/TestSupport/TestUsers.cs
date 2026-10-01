@@ -1,3 +1,9 @@
+/*
+ * File:    TestUsers.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: Ready-made user documents for service tests.
+ */
 using SolarGrid.Api.Models;
 using SolarGrid.Api.Security;
 

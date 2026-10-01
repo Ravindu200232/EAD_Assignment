@@ -1,3 +1,10 @@
+/*
+ * File:    users.spec.js
+ * Module:  Staff Users - end-to-end tests
+ * Owner:   Ravindu
+ * Purpose: Backoffice creates, finds, edits, deactivates and reactivates
+ *          staff accounts; the API's rules are shown in the page.
+ */
 import { expect, test } from '@playwright/test'
 import { API_URL, accounts, api, apiLogin, loginAs, openFromMenu, uniqueNic } from './helpers'
 

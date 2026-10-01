@@ -1,3 +1,9 @@
+/*
+ * File:    ProsumerFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Malith
+ * Purpose: Prosumer registration, activation, profile and deactivation over real HTTP calls.
+ */
 using System.Net;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
@@ -17,7 +23,7 @@ public class ProsumerFlowTests
         _factory = factory;
     }
 
-    // End-to-end prosumer lifecycle and status transitions.
+    // Register -> blocked -> activated -> edit -> deactivate -> blocked -> reactivated.
     [Fact]
     public async Task Prosumer_FullAccountLifecycle()
     {

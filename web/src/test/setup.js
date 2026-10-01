@@ -1,3 +1,11 @@
+/*
+ * File:    setup.js
+ * Module:  Unit tests
+ * Owner:   Ravindu
+ * Purpose: Runs before every unit test file. Adds the jest-dom matchers and
+ *          fills in browser features that jsdom does not have.
+ * Source:  WEB-12 (Vitest and Testing Library set-up), WEB-09 (dialog element).
+ */
 import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
 import { afterEach } from 'vitest'

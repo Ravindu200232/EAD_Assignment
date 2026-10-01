@@ -1,3 +1,11 @@
+/*
+ * File:    StationMap.test.jsx
+ * Module:  Maps - unit tests
+ * Owner:   Nimthara
+ * Purpose: Checks that the page maps pick Google Maps or OpenStreetMap from
+ *          the map provider, show the switch-over note, and fall back to
+ *          OpenStreetMap when the Google map code breaks.
+ */
 import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import PickerMap from './PickerMap'

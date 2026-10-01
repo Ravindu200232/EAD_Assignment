@@ -1,3 +1,10 @@
+/*
+ * File:    ProsumerDtos.cs
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Request shapes for prosumer registration, profile updates and deactivation.
+ *          Prosumer details are returned with UserResponse.
+ */
 using System.ComponentModel.DataAnnotations;
 
 namespace SolarGrid.Api.Dtos;

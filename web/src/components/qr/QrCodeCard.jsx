@@ -1,3 +1,12 @@
+/*
+ * File:    QrCodeCard.jsx
+ * Module:  Energy Reservations (QR codes)
+ * Owner:   Hamnad
+ * Purpose: The QR code of an approved booking, for the prosumer to show at
+ *          the station. Staff can print it as a booking slip or copy the code
+ *          text (the check-in page accepts pasted codes).
+ * Source:  WEB-17 (qrcode.react), WEB-21 (printing), WEB-32 (Clipboard API).
+ */
 import { Copy, Printer, QrCode, RefreshCw } from 'lucide-react'
 import { QRCodeSVG } from 'qrcode.react'
 import { getReservationQr } from '../../api/reservations'

@@ -1,3 +1,11 @@
+/*
+ * File:    auth.spec.js
+ * Module:  Authentication - end-to-end tests
+ * Owner:   Ravindu
+ * Purpose: Login for each staff role, role-based menus and pages, the
+ *          prosumer refusal, logout, password change and sessions that end
+ *          when an account is deactivated.
+ */
 import { expect, test } from '@playwright/test'
 import { accounts, api, apiLogin, createStaffUser, loginAs, submitLogin } from './helpers'
 
@@ -130,5 +138,5 @@ test('unknown addresses show the not-found page', async ({ page }) => {
 
   await expect(page.getByRole('heading', { name: 'This page is off the grid' })).toBeVisible()
   await page.getByRole('link', { name: 'Go to the start page' }).click()
-  await expect(page.getByRole('button', { name: 'Log in' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Trade sunshine')
 })

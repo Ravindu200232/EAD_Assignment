@@ -1,3 +1,10 @@
+/*
+ * File:    DashboardPage.test.jsx
+ * Module:  Dashboards - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the Backoffice numbers, their links, the next bookings and
+ *          the error message.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { getStaffSummary } from '../../api/dashboard'

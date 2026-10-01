@@ -1,3 +1,11 @@
+/*
+ * File:    LeafletStationMap.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: OpenStreetMap version of the station map (used without a Google
+ *          Maps key): a pin for every station; clicking a pin selects it.
+ * Source:  WEB-15 (Leaflet markers, layer groups and fitBounds).
+ */
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import { MapPinOff } from 'lucide-react'
 import { cn } from '../../utils/cn'

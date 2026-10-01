@@ -1,3 +1,9 @@
+/*
+ * File:    TestClock.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: A fixed, controllable clock so time-based rules give the same result every run.
+ */
 using Microsoft.Extensions.Time.Testing;
 using SolarGrid.Api.Common;
 

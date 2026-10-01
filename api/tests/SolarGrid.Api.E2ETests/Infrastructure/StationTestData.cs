@@ -1,3 +1,9 @@
+/*
+ * File:    StationTestData.cs
+ * Module:  E2E Tests
+ * Owner:   Nimthara
+ * Purpose: Creates stations and slots through the real API for end-to-end tests.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 

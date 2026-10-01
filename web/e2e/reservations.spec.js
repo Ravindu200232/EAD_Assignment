@@ -1,3 +1,11 @@
+/*
+ * File:    reservations.spec.js
+ * Module:  Energy Reservations - end-to-end tests
+ * Owner:   Hamnad
+ * Purpose: Staff book a slot for a prosumer with the wizard, approve it (QR
+ *          code), change and cancel bookings, see the 12-hour lock and the
+ *          rejection reason, and use the booking lists, filters and search.
+ */
 import { expect, test } from '@playwright/test'
 import { accounts, activeProsumer, api, apiLogin, findFreeSlot, loginAs, openFromMenu, stationByCode } from './helpers'
 

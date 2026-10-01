@@ -1,3 +1,11 @@
+/*
+ * File:    ReservationsPage.test.jsx
+ * Module:  Energy Reservations - unit tests
+ * Owner:   Hamnad
+ * Purpose: Checks the booking list: tabs from the address, the filters sent
+ *          to the API, the "Missed" label and approving or rejecting from
+ *          the list.
+ */
 import { fireEvent, screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { approveReservation, listReservations, rejectReservation } from '../../api/reservations'

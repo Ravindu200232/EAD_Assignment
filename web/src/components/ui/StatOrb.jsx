@@ -1,3 +1,10 @@
+/*
+ * File:    StatOrb.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Round "breathing" number used on dashboards and the home page.
+ * Source:  WEB-01 (stat orbs and clay-breathe animation).
+ */
 import { Link } from 'react-router'
 import { cn } from '../../utils/cn'
 import { ORB_COLORS } from './styles'

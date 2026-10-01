@@ -1,3 +1,11 @@
+/*
+ * File:    Card.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Glass clay card. It can show a title row with an icon and actions,
+ *          and can lift on hover when the whole card is clickable.
+ * Source:  WEB-01 (claymorphism card).
+ */
 import { cn } from '../../utils/cn'
 import IconOrb from './IconOrb'
 

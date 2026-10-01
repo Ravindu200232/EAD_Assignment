@@ -1,3 +1,11 @@
+/*
+ * File:    AuthLayout.jsx
+ * Module:  Core layout
+ * Owner:   Ravindu
+ * Purpose: Two-part login screen: a colourful panel that explains the portal
+ *          next to the login card.
+ * Source:  WEB-01 (split layout with an abstract clay composition).
+ */
 import { BatteryCharging, CalendarClock, ScanLine, Sun } from 'lucide-react'
 import { Outlet } from 'react-router'
 import IconOrb from '../components/ui/IconOrb'

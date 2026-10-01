@@ -1,3 +1,10 @@
+/*
+ * File:    PendingActivationsPage.test.jsx
+ * Module:  Prosumer Accounts - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the activation queue: activate, reject with confirmation,
+ *          API errors and the empty state.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { activateProsumer, deactivateProsumer, listPendingActivations } from '../../api/prosumers'

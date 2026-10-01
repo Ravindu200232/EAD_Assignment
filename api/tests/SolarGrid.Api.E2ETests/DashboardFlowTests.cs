@@ -1,3 +1,9 @@
+/*
+ * File:    DashboardFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Malith
+ * Purpose: Dashboard numbers read live from the database, and who may see them.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.E2ETests.Infrastructure;

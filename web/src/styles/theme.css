@@ -1,3 +1,13 @@
+/*
+ * File:    theme.css
+ * Module:  Core UI (design system)
+ * Owner:   Ravindu
+ * Purpose: All design tokens for the "clay" look in one place: colours, shadows,
+ *          corner radii, fonts and motion. Pages and components only use these
+ *          tokens, never their own colours or shadows.
+ * Source:  WEB-01 (claymorphism design system), WEB-03 (Tailwind v4 @theme),
+ *          WEB-11 (prefers-reduced-motion).
+ */
 @import 'tailwindcss';
 
 @theme {

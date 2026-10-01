@@ -1,3 +1,10 @@
+/*
+ * File:    UsersPage.jsx
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: Backoffice page to list, search, create, edit, activate and
+ *          deactivate Backoffice and Grid Operator accounts.
+ */
 import { useState } from 'react'
 import { Pencil, Power, PowerOff, UserPlus, Users } from 'lucide-react'
 import { getErrorMessage } from '../../api/client'

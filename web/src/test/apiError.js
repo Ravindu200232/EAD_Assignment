@@ -1,3 +1,9 @@
+/*
+ * File:    apiError.js
+ * Module:  Unit tests
+ * Owner:   Ravindu
+ * Purpose: Builds fake API errors in the same shape Axios gives the pages.
+ */
 import { AxiosError } from 'axios'
 
 // Error with a ProblemDetails body, e.g. apiError(400, { detail: '...' }).

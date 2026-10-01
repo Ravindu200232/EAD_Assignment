@@ -1,3 +1,10 @@
+/*
+ * File:    CheckInPage.test.jsx
+ * Module:  Operator Check-in - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks reading a code (typed, USB scanner or camera), the result
+ *          shown to the operator and completing the transfer.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { completeTransfer, verifyQrCode } from '../../api/checkin'

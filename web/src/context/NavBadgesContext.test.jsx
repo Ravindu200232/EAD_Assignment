@@ -1,3 +1,10 @@
+/*
+ * File:    NavBadgesContext.test.jsx
+ * Module:  Dashboards - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the "sign-ups waiting" counter in the side menu and the
+ *          menu entries each role sees.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { getStaffSummary } from '../api/dashboard'

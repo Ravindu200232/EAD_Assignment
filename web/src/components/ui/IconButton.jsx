@@ -1,3 +1,10 @@
+/*
+ * File:    IconButton.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Square button that shows only an icon. The label is read out by
+ *          screen readers and shown as a tooltip.
+ */
 import { cn } from '../../utils/cn'
 
 const VARIANTS = {

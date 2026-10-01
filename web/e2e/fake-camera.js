@@ -1,3 +1,12 @@
+/*
+ * File:    fake-camera.js
+ * Module:  End-to-end tests
+ * Owner:   Ravindu
+ * Purpose: Makes a short video file that shows a QR code. Chromium can play
+ *          it as a pretend webcam, so the camera check-in can be tested
+ *          without a real camera.
+ * Source:  WEB-24 (Chromium fake media capture flags), WEB-22 (ZXing QR writer).
+ */
 import { writeFileSync } from 'node:fs'
 import { BarcodeFormat, EncodeHintType, QRCodeWriter } from '@zxing/library'
 

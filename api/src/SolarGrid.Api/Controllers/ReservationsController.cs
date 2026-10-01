@@ -1,3 +1,10 @@
+/*
+ * File:    ReservationsController.cs
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: HTTP endpoints for booking, changing, cancelling, approving and
+ *          listing energy reservations, and for their QR codes.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

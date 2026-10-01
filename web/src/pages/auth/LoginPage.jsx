@@ -1,3 +1,11 @@
+/*
+ * File:    LoginPage.jsx
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Staff login with NIC or email. Once the session is stored, the
+ *          route guard sends Backoffice and Grid Operator users to their own
+ *          home page. Prosumer accounts are refused (they use the mobile app).
+ */
 import { useState } from 'react'
 import { ArrowRight, LockKeyhole, Smartphone, UserRound } from 'lucide-react'
 import { getErrorMessage, getFieldErrors } from '../../api/client'

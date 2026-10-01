@@ -1,3 +1,10 @@
+/*
+ * File:    screens-core.spec.js
+ * Module:  Core pages - report screenshots
+ * Owner:   Ravindu
+ * Purpose: Screenshots of the login, staff users, account, check-in and
+ *          error pages for the report (run with npm run e2e:screens).
+ */
 import { expect, test } from '@playwright/test'
 import { api, apiLogin, findReservation, loginAs, openFromMenu } from './helpers'
 import { screenTests, shoot } from './screens'

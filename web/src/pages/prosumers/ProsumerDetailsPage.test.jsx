@@ -1,3 +1,10 @@
+/*
+ * File:    ProsumerDetailsPage.test.jsx
+ * Module:  Prosumer Accounts - unit tests
+ * Owner:   Malith
+ * Purpose: Checks the profile, the booking list (with missed bookings) and
+ *          editing from the details page.
+ */
 import { screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { getProsumer, listProsumerBookings, updateProsumer } from '../../api/prosumers'
@@ -38,9 +45,10 @@ describe('ProsumerDetailsPage', () => {
     expect(screen.getByText('No. 12, Temple Road, Malabe')).toBeInTheDocument()
     expect(screen.getByText('5.5 kW')).toBeInTheDocument()
     expect(getProsumer).toHaveBeenCalledWith('200034501234')
-    expect(listProsumerBookings).toHaveBeenCalledWith('200034501234', { page: 1, pageSize: 8 })
 
+    // The bookings are loaded after the profile is on screen, so wait for the table first.
     const table = await screen.findByRole('table', { name: 'Prosumer bookings' })
+    expect(listProsumerBookings).toHaveBeenCalledWith('200034501234', { page: 1, pageSize: 8 })
     const missed = within(table).getByRole('link', { name: 'RSV-A' }).closest('tr')
     expect(within(missed).getByText('Missed')).toBeInTheDocument()
     const done = within(table).getByRole('link', { name: 'RSV-B' }).closest('tr')

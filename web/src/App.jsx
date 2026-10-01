@@ -1,3 +1,9 @@
+/*
+ * File:    App.jsx
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: Puts the app together: session and toast providers around the router.
+ */
 import { useState } from 'react'
 import { RouterProvider } from 'react-router/dom'
 import { AuthProvider } from './context/AuthContext'

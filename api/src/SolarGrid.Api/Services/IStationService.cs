@@ -1,3 +1,9 @@
+/*
+ * File:    IStationService.cs
+ * Module:  Microgrid Stations
+ * Owner:   Nimthara
+ * Purpose: Management and search of solar microgrid stations.
+ */
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;
 using SolarGrid.Api.Security;

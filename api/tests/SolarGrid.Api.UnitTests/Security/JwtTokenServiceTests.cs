@@ -1,3 +1,9 @@
+/*
+ * File:    JwtTokenServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: Checks the claims, lifetime and signature of issued tokens.
+ */
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;

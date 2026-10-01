@@ -1,3 +1,12 @@
+/*
+ * File:    BookingWizardPage.jsx
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Staff book a slot for a prosumer, or change a booking, in five
+ *          steps: prosumer, station, day (next 7 days), free slot, and energy
+ *          with the trade type. The API checks the 7-day and 12-hour rules,
+ *          free bays and how much energy one battery bay can hold.
+ */
 import { useState } from 'react'
 import { BatteryCharging, Building2, CalendarCheck, CalendarDays, CalendarX2, Clock, Save, UserRound } from 'lucide-react'
 import { useNavigate, useParams } from 'react-router'

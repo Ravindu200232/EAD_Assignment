@@ -1,3 +1,9 @@
+/*
+ * File:    AuthDtos.cs
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Request and response shapes for login and password change.
+ */
 using System.ComponentModel.DataAnnotations;
 
 namespace SolarGrid.Api.Dtos;

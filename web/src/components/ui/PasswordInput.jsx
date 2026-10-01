@@ -1,3 +1,9 @@
+/*
+ * File:    PasswordInput.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Password box with a button that shows or hides what was typed.
+ */
 import { useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 import { cn } from '../../utils/cn'

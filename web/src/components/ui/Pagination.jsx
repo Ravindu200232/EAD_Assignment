@@ -1,3 +1,9 @@
+/*
+ * File:    Pagination.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Previous / next controls for paged API lists.
+ */
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Button from './Button'
 

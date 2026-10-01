@@ -1,3 +1,9 @@
+/*
+ * File:    Skeleton.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Soft placeholder blocks shown while data is loading.
+ */
 import { cn } from '../../utils/cn'
 
 // One pulsing placeholder block.

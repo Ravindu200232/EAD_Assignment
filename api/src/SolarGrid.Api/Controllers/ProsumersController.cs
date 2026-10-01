@@ -1,3 +1,10 @@
+/*
+ * File:    ProsumersController.cs
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: HTTP endpoints for prosumer self-service (mobile app) and
+ *          prosumer management by staff (web app).
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Common;

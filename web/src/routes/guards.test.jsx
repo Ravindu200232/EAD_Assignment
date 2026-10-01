@@ -1,3 +1,10 @@
+/*
+ * File:    guards.test.jsx
+ * Module:  Core (navigation) - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks that pages are only shown to signed-in users with the right
+ *          role, and that login returns the user to the page they asked for.
+ */
 import { act, screen } from '@testing-library/react'
 import { Outlet, useLocation } from 'react-router'
 import { describe, expect, it, vi } from 'vitest'

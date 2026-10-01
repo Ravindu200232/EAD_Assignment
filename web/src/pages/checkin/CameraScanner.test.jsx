@@ -1,3 +1,11 @@
+/*
+ * File:    CameraScanner.test.jsx
+ * Module:  Operator Check-in - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks the camera scanner with a fake ZXing reader: a read code is
+ *          passed on once, the camera is stopped, switching cameras starts a
+ *          clean preview, and camera problems are explained to the operator.
+ */
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import CameraScanner from './CameraScanner'

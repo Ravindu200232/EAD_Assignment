@@ -1,3 +1,9 @@
+/*
+ * File:    IReservationService.cs
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The booking workflow: create, change, cancel, approve, reject, list and QR codes.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Security;

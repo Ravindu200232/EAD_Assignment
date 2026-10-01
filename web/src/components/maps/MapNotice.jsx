@@ -1,3 +1,10 @@
+/*
+ * File:    MapNotice.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Small note above a map when Google Maps could not be used and the
+ *          page switched to OpenStreetMap.
+ */
 import { Info } from 'lucide-react'
 
 // Shows nothing when there is no note.

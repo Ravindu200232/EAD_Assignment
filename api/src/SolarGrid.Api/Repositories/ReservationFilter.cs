@@ -1,3 +1,9 @@
+/*
+ * File:    ReservationFilter.cs
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Search conditions for reservation lists, already converted to UTC by the service.
+ */
 using SolarGrid.Api.Models;
 
 namespace SolarGrid.Api.Repositories;

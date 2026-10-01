@@ -1,3 +1,10 @@
+/*
+ * File:    PickerMap.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: The location chooser used by the station form: Google Maps when a
+ *          key is configured, OpenStreetMap otherwise.
+ */
 import { Suspense, lazy } from 'react'
 import MapErrorBoundary from './MapErrorBoundary'
 import MapNotice from './MapNotice'

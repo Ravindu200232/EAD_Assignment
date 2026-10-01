@@ -1,3 +1,10 @@
+/*
+ * File:    UserMenu.jsx
+ * Module:  Core layout
+ * Owner:   Ravindu
+ * Purpose: Avatar button in the top bar that opens a small menu with the
+ *          account page and the logout action.
+ */
 import { useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown, LogOut, UserRound } from 'lucide-react'
 import { Link } from 'react-router'

@@ -1,3 +1,9 @@
+/*
+ * File:    IUserService.cs
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: Management of Backoffice and Grid Operator accounts.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;

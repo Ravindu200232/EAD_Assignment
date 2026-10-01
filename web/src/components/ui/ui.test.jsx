@@ -1,3 +1,10 @@
+/*
+ * File:    ui.test.jsx
+ * Module:  Core UI - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks the shared components that every page relies on:
+ *          accessible fields, keyboard tabs, dialogs and list states.
+ */
 import { useState } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

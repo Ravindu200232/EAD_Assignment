@@ -1,3 +1,11 @@
+/*
+ * File:    LeafletPickerMap.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: OpenStreetMap version of the location chooser (used without a
+ *          Google Maps key). Clicking the map moves the pin; it can be dragged.
+ * Source:  WEB-15 (Leaflet map click and draggable marker events).
+ */
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import { MapPinOff } from 'lucide-react'
 import { L, createMap, markerIcon } from './leafletSetup'

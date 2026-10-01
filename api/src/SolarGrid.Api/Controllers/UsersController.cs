@@ -1,3 +1,10 @@
+/*
+ * File:    UsersController.cs
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: HTTP endpoints for Backoffice and Grid Operator accounts.
+ *          Only Backoffice users can reach these endpoints.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Common;

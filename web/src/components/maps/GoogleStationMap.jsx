@@ -1,3 +1,11 @@
+/*
+ * File:    GoogleStationMap.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Google Maps version of the station map: a coloured pin for every
+ *          station; clicking a pin selects the station.
+ * Source:  WEB-28 (Google Maps advanced markers and gmp-click, LatLngBounds, fitBounds).
+ */
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import Spinner from '../ui/Spinner'
 import { cn } from '../../utils/cn'

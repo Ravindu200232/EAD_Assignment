@@ -1,3 +1,9 @@
+/*
+ * File:    ReservationDtos.cs
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Request, filter and response shapes for energy reservations and their QR codes.
+ */
 using System.ComponentModel.DataAnnotations;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Models;

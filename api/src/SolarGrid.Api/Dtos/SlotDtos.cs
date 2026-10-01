@@ -1,3 +1,10 @@
+/*
+ * File:    SlotDtos.cs
+ * Module:  Energy Slots
+ * Owner:   Nimthara
+ * Purpose: Request and response shapes for bookable energy slots.
+ *          Requests use Sri Lanka local dates and "HH:mm" times; responses return UTC times.
+ */
 using System.ComponentModel.DataAnnotations;
 using SolarGrid.Api.Models;
 

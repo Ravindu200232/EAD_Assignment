@@ -1,3 +1,14 @@
+/*
+ * File:    sessionStore.js
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Holds the signed-in session (token, expiry and user) outside React,
+ *          so the API client can read the token before any page loads data.
+ *          The session is kept in localStorage so a page refresh keeps you
+ *          signed in until the token expires.
+ * Source:  WEB-20 (Web Storage API).
+ */
+
 export const SESSION_KEY = 'solargrid.session'
 
 const listeners = new Set()

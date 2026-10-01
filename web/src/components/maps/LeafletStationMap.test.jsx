@@ -1,3 +1,10 @@
+/*
+ * File:    LeafletStationMap.test.jsx
+ * Module:  Maps - unit tests
+ * Owner:   Nimthara
+ * Purpose: Checks the OpenStreetMap station map with the real Leaflet library: one pin per
+ *          station, selection by click, and station names shown as plain text.
+ */
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import StationMap from './LeafletStationMap'

@@ -1,3 +1,10 @@
+/*
+ * File:    StationsController.cs
+ * Module:  Microgrid Stations
+ * Owner:   Nimthara
+ * Purpose: HTTP endpoints for microgrid stations, their schedules,
+ *          battery slot availability and the nearby-station search.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Dtos;

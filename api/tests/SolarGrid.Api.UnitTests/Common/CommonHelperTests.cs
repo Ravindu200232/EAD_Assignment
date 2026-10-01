@@ -1,3 +1,9 @@
+/*
+ * File:    CommonHelperTests.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: Tests for the small shared helpers: clock, paging, schedule times and passwords.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Models;
 using SolarGrid.Api.Security;

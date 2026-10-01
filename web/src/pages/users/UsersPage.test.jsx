@@ -1,3 +1,10 @@
+/*
+ * File:    UsersPage.test.jsx
+ * Module:  Staff Users - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks the staff list, the filters sent to the API, creating an
+ *          account and the rule that you cannot deactivate yourself.
+ */
 import { screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createUser, listUsers, setUserStatus } from '../../api/users'

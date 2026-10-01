@@ -1,3 +1,10 @@
+/*
+ * File:    samples.js
+ * Module:  Unit tests
+ * Owner:   Malith
+ * Purpose: Sample prosumers and bookings shaped like the API's answers.
+ */
+
 export const activeProsumer = {
   nic: '200034501234',
   fullName: 'Kasun Perera',

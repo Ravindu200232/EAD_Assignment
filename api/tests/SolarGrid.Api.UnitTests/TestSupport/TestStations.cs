@@ -1,3 +1,9 @@
+/*
+ * File:    TestStations.cs
+ * Module:  Unit Tests
+ * Owner:   Nimthara
+ * Purpose: Ready-made station and slot documents for service tests.
+ */
 using SolarGrid.Api.Models;
 
 namespace SolarGrid.Api.UnitTests.TestSupport;

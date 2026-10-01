@@ -1,3 +1,9 @@
+/*
+ * File:    bookingDetails.test.js
+ * Module:  Energy Reservations - unit tests
+ * Owner:   Hamnad
+ * Purpose: Checks the list tabs, who-did-it labels and the booking timeline.
+ */
 import { describe, expect, it } from 'vitest'
 import { reservation } from '../../test/reservationSamples'
 import { actorLabel, canDecide, tabFor, timelineOf } from './bookingDetails'

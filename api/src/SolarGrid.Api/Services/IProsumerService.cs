@@ -1,3 +1,9 @@
+/*
+ * File:    IProsumerService.cs
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Registration, profile and activation rules for solar prosumers.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;

@@ -1,3 +1,9 @@
+/*
+ * File:    EmptyState.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Friendly message shown when a list has nothing to show.
+ */
 import { SearchX } from 'lucide-react'
 import IconOrb from './IconOrb'
 

@@ -1,3 +1,11 @@
+/*
+ * File:    Drawer.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Side panel that slides in on small screens (used for the menu).
+ *          Built on <dialog> so focus stays inside and Escape closes it.
+ * Source:  WEB-09 (MDN dialog element).
+ */
 import { useEffect, useRef } from 'react'
 import { X } from 'lucide-react'
 import IconButton from './IconButton'

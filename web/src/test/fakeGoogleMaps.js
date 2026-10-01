@@ -1,3 +1,11 @@
+/*
+ * File:    fakeGoogleMaps.js
+ * Module:  Unit tests
+ * Owner:   Nimthara
+ * Purpose: A tiny stand-in for the Google Maps libraries so the Google map
+ *          components can be tested without loading Google's script.
+ */
+
 // Returns fake Map, AdvancedMarkerElement, PinElement and LatLngBounds classes
 // plus lists of what was created.
 export function createFakeGoogle() {

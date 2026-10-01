@@ -1,3 +1,11 @@
+/*
+ * File:    mapProvider.test.jsx
+ * Module:  Maps - unit tests
+ * Owner:   Nimthara
+ * Purpose: Checks how the map service is chosen: Google Maps with a key,
+ *          OpenStreetMap without one, and the switch to OpenStreetMap when
+ *          Google Maps fails (bad key or no connection).
+ */
 import { act, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 

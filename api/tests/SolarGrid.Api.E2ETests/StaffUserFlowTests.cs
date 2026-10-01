@@ -1,3 +1,9 @@
+/*
+ * File:    StaffUserFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Ravindu
+ * Purpose: Backoffice management of staff accounts, end to end.
+ */
 using System.Net;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
@@ -18,7 +24,7 @@ public class StaffUserFlowTests
         _factory = factory;
     }
 
-    // Staff user lifecycle and access control flow.
+    // Create -> log in -> update -> deactivate (blocked) -> reactivate (allowed again).
     [Fact]
     public async Task Backoffice_ManagesGridOperatorLifecycle()
     {

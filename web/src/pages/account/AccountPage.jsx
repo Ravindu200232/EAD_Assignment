@@ -1,3 +1,10 @@
+/*
+ * File:    AccountPage.jsx
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Shows the signed-in staff member's details and lets them change
+ *          their password.
+ */
 import { useState } from 'react'
 import { IdCard, KeyRound, LogOut, Mail, Phone, ShieldCheck, UserRound } from 'lucide-react'
 import { changePassword } from '../../api/auth'

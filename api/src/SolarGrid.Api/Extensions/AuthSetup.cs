@@ -1,3 +1,10 @@
+/*
+ * File:    AuthSetup.cs
+ * Module:  Startup
+ * Owner:   Ravindu
+ * Purpose: JWT bearer authentication. Tokens are checked on every request and
+ *          401/403 answers use the same JSON format as other errors.
+ */
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

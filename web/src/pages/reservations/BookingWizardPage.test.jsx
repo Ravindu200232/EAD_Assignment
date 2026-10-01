@@ -1,3 +1,11 @@
+/*
+ * File:    BookingWizardPage.test.jsx
+ * Module:  Energy Reservations - unit tests
+ * Owner:   Hamnad
+ * Purpose: Checks the booking wizard: the seven day choices, free slots,
+ *          the energy limit of one bay, the data sent to the API, changing a
+ *          booking (its own slot stays available) and the 12-hour lock.
+ */
 import { screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { listProsumers } from '../../api/prosumers'

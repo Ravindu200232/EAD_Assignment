@@ -1,3 +1,10 @@
+/*
+ * File:    roles.js
+ * Module:  Core (authentication)
+ * Owner:   Ravindu
+ * Purpose: Role names used by the API, and the groups the web app checks.
+ */
+
 export const Roles = Object.freeze({
   Backoffice: 'Backoffice',
   GridOperator: 'GridOperator',

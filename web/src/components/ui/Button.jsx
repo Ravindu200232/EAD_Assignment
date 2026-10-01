@@ -1,3 +1,11 @@
+/*
+ * File:    Button.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Clay buttons that lift on hover and squish when pressed. With `to`
+ *          the same look is used for a router link.
+ * Source:  WEB-01 (claymorphism button), WEB-08 (Lucide icons).
+ */
 import { Link } from 'react-router'
 import Spinner from './Spinner'
 import { buttonClasses } from './styles'

@@ -1,3 +1,10 @@
+/*
+ * File:    SearchInput.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Search box with a clear button. Pages debounce the value before
+ *          calling the API.
+ */
 import { Search, X } from 'lucide-react'
 import IconButton from './IconButton'
 import Input from './Input'

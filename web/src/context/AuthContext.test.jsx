@@ -1,3 +1,10 @@
+/*
+ * File:    AuthContext.test.jsx
+ * Module:  Authentication - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks login, the prosumer refusal, logout, token expiry and
+ *          logouts made in another tab.
+ */
 import { useState } from 'react'
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

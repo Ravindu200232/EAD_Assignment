@@ -1,3 +1,11 @@
+/*
+ * File:    DashboardPage.jsx
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Backoffice home page with live numbers (pending and approved
+ *          reservations, today's bookings, sign-ups to activate, stations and
+ *          prosumers), the next bookings and quick actions.
+ */
 import { CalendarClock, ScanLine, Sparkles, UserCheck, UserPlus, UsersRound } from 'lucide-react'
 import { getStaffSummary } from '../../api/dashboard'
 import Alert from '../../components/ui/Alert'

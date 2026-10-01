@@ -1,3 +1,14 @@
+/*
+ * File:    StationService.cs
+ * Module:  Microgrid Stations
+ * Owner:   Nimthara
+ * Purpose: Business rules for microgrid stations:
+ *          - unique station codes and valid GPS, capacity and schedule values
+ *          - available battery slots never exceed the physical slots
+ *          - a station with active reservations cannot be deactivated
+ *          - only stations that were never booked can be deleted
+ *          - prosumers only see active stations
+ */
 using MongoDB.Bson;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;

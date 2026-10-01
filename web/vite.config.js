@@ -1,3 +1,10 @@
+/*
+ * File:    vite.config.js
+ * Module:  Core (build set-up)
+ * Owner:   Ravindu
+ * Purpose: Vite build settings, the Tailwind plugin and the Vitest unit test settings.
+ * Source:  WEB-02 (Vite React set-up and build options), WEB-03 (Tailwind with Vite), WEB-12 (Vitest).
+ */
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
@@ -24,5 +31,9 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.js'],
     include: ['src/**/*.test.{js,jsx}'],
     restoreMocks: true,
+    // Long forms typed key by key need more than the default 5 seconds when all files run together.
+    testTimeout: 15000,
+    // Unit tests never call Google Maps; the map pages use OpenStreetMap here.
+    env: { VITE_MAPS_PROVIDER: 'osm' },
   },
 })

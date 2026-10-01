@@ -1,3 +1,11 @@
+/*
+ * File:    Tabs.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Segmented pill used to switch lists (for example status filters).
+ *          Arrow keys, Home and End move between tabs.
+ * Source:  WEB-19 (WAI-ARIA tabs pattern).
+ */
 import { useRef } from 'react'
 import { cn } from '../../utils/cn'
 

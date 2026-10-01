@@ -1,3 +1,10 @@
+/*
+ * File:    SlotServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Nimthara
+ * Purpose: Rules for creating, generating, changing and listing energy slots.
+ *          The test clock is Sunday 20 Sep 2026, 10:00 in Sri Lanka.
+ */
 using NSubstitute;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
@@ -144,8 +151,8 @@ public class SlotServiceTests
 
         var result = await _service.GenerateAsync(TestStations.StationId, new GenerateSlotsRequest { Days = 7, SlotMinutes = 120 });
 
-        // Skip already started slots for today.
-        // Handle slot conflicts and weekend closures.
+        // Today: 06, 08 and 10 o'clock have started -> 3 skipped, 3 created.
+        // Monday: 08 o'clock is taken -> 1 skipped, 5 created. Tue-Fri: 4 x 6. Saturday closed.
         Assert.Equal(4, result.Skipped);
         Assert.Equal(32, result.Created);
         Assert.Equal(_clock.ToUtc(Today, 12 * 60), result.Slots[0].StartTime);

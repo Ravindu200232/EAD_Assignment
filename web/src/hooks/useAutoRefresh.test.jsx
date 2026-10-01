@@ -1,3 +1,9 @@
+/*
+ * File:    useAutoRefresh.test.jsx
+ * Module:  Dashboards - unit tests
+ * Owner:   Malith
+ * Purpose: Checks that dashboards refresh on a timer only while visible.
+ */
 import { act, render } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useAutoRefresh } from './useAutoRefresh'

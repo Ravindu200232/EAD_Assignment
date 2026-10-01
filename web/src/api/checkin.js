@@ -1,3 +1,9 @@
+/*
+ * File:    checkin.js
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Calls used at a station to check a booking QR code and finish the transfer.
+ */
 import client from './client'
 
 // Checks the text read from a QR code. Returns { canComplete, message, reservation, ... }.

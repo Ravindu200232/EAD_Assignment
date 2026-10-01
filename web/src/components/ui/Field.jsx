@@ -1,3 +1,11 @@
+/*
+ * File:    Field.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Form row with a label, the control, an optional hint and the error
+ *          message returned by the API for that field.
+ * Source:  WEB-06 (React useId).
+ */
 import { useId, useMemo } from 'react'
 import { CircleAlert } from 'lucide-react'
 import { cn } from '../../utils/cn'

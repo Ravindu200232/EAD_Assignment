@@ -1,3 +1,9 @@
+/*
+ * File:    SlotFlowTests.cs
+ * Module:  E2E Tests
+ * Owner:   Nimthara
+ * Purpose: Creating, generating, changing and deleting energy slots over real HTTP calls.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.E2ETests.Infrastructure;

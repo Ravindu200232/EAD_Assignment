@@ -1,3 +1,9 @@
+/*
+ * File:    DashboardServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Malith
+ * Purpose: Dashboard numbers for staff, prosumers and the public home page.
+ */
 using NSubstitute;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Models;

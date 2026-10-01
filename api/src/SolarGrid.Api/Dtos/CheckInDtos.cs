@@ -1,3 +1,10 @@
+/*
+ * File:    CheckInDtos.cs
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Request and response shapes for scanning a booking QR code at a station
+ *          and finishing the energy transfer.
+ */
 using System.ComponentModel.DataAnnotations;
 
 namespace SolarGrid.Api.Dtos;

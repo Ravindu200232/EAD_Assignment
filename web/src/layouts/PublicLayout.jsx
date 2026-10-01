@@ -1,3 +1,10 @@
+/*
+ * File:    PublicLayout.jsx
+ * Module:  Core layout
+ * Owner:   Ravindu
+ * Purpose: Frame for pages anyone can open (home and login): a floating
+ *          navigation pill, the page and a short footer.
+ */
 import { LogIn } from 'lucide-react'
 import { Outlet, useLocation } from 'react-router'
 import BackgroundBlobs from '../components/ui/BackgroundBlobs'

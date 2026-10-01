@@ -1,3 +1,11 @@
+/*
+ * File:    bookingDetails.js
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Shared wording for bookings: the list tabs, the booking rules in
+ *          words, who did something, and the booking's timeline. The rules
+ *          themselves are checked by the API; these helpers only describe them.
+ */
 import { bookingStatus, formatKwh } from '../../utils/format'
 
 export const BOOKING_RULES = 'Bookings: up to 7 days ahead · changes and cancellations: at least 12 hours before the start'

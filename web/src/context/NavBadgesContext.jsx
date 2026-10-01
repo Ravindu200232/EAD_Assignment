@@ -1,3 +1,11 @@
+/*
+ * File:    NavBadgesContext.jsx
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Small counters in the side menu, such as the number of sign-ups
+ *          waiting for activation. Pages call refresh() after a change.
+ * Source:  WEB-06 (React context).
+ */
 import { createContext, useContext, useMemo } from 'react'
 import { getStaffSummary } from '../api/dashboard'
 import { useApi } from '../hooks/useApi'

@@ -1,3 +1,9 @@
+/*
+ * File:    AuthController.cs
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: HTTP endpoints for login, the current profile and password change.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Dtos;

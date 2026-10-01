@@ -1,3 +1,11 @@
+/*
+ * File:    styles.js
+ * Module:  Core UI (design system)
+ * Owner:   Ravindu
+ * Purpose: Class lists shared by several clay components, so buttons, links
+ *          and form controls always look the same.
+ * Source:  WEB-01 (claymorphism button, recessed input and icon orb gradients).
+ */
 import { cn } from '../../utils/cn'
 
 // Gradient pairs for icon tiles and stat orbs (light 400 to strong 600).

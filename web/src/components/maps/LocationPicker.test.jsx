@@ -1,3 +1,9 @@
+/*
+ * File:    LocationPicker.test.jsx
+ * Module:  Maps - unit tests
+ * Owner:   Nimthara
+ * Purpose: Checks that the map pick and the latitude/longitude boxes stay in step.
+ */
 import { useState } from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

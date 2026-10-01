@@ -1,3 +1,10 @@
+/*
+ * File:    TopBar.jsx
+ * Module:  Core layout
+ * Owner:   Ravindu
+ * Purpose: Floating bar above every signed-in page: menu button on phones,
+ *          a greeting, the API status light and the user menu.
+ */
 import { Menu } from 'lucide-react'
 import Brand from '../components/ui/Brand'
 import IconButton from '../components/ui/IconButton'

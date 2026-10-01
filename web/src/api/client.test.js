@@ -1,3 +1,10 @@
+/*
+ * File:    client.test.js
+ * Module:  Core (API access) - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks how API errors become messages, and that an expired token
+ *          ends the session.
+ */
 import { AxiosError } from 'axios'
 import { describe, expect, it, vi } from 'vitest'
 import { apiError } from '../test/apiError'

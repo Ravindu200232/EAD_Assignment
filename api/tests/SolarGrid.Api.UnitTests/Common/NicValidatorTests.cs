@@ -1,3 +1,9 @@
+/*
+ * File:    NicValidatorTests.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: Checks the old and new Sri Lankan NIC formats.
+ */
 using SolarGrid.Api.Common;
 
 namespace SolarGrid.Api.UnitTests.Common;

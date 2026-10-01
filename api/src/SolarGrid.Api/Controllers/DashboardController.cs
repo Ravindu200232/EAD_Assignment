@@ -1,3 +1,9 @@
+/*
+ * File:    DashboardController.cs
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: HTTP endpoints for the staff, prosumer and public summaries.
+ */
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SolarGrid.Api.Dtos;

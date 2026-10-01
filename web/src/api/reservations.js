@@ -1,3 +1,11 @@
+/*
+ * File:    reservations.js
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Staff calls for energy bookings: search, details, booking for a
+ *          prosumer, changing, cancelling, approving, rejecting and the
+ *          booking's QR code. Every rule is checked by the API.
+ */
 import client from './client'
 
 const path = (id) => `/reservations/${encodeURIComponent(id)}`

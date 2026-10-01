@@ -1,3 +1,12 @@
+/*
+ * File:    client.js
+ * Module:  Core (API access)
+ * Owner:   Ravindu
+ * Purpose: The one place that talks HTTP. It adds the login token to every
+ *          request, reacts to expired sessions and turns API errors into
+ *          plain messages. The web app has no business rules of its own.
+ * Source:  WEB-05 (Axios instance and interceptors).
+ */
 import axios from 'axios'
 
 export const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/+$/, '')

@@ -1,3 +1,10 @@
+/*
+ * File:    Input.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Recessed text input. An optional icon sits inside on the left.
+ * Source:  WEB-01 (claymorphism recessed input).
+ */
 import { cn } from '../../utils/cn'
 import { useFieldProps } from './fieldContext'
 import { controlClasses } from './styles'

@@ -1,3 +1,10 @@
+/*
+ * File:    prosumers.js
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Staff calls for prosumer accounts: list, details, create, update,
+ *          deactivate, activate (Backoffice only) and the activation queue.
+ */
 import client from './client'
 
 const path = (nic) => `/prosumers/${encodeURIComponent(nic)}`

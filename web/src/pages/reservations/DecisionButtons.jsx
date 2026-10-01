@@ -1,3 +1,12 @@
+/*
+ * File:    DecisionButtons.jsx
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Approve and Reject for a pending booking, with their confirmation
+ *          dialogs. Used in the booking list (small icon buttons) and on the
+ *          booking page (full buttons). Approving issues the QR code; a
+ *          rejection needs a reason the prosumer can read.
+ */
 import { useState } from 'react'
 import { Check, X } from 'lucide-react'
 import { getErrorMessage } from '../../api/client'

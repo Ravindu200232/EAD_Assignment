@@ -1,3 +1,11 @@
+/*
+ * File:    DashboardService.cs
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Builds dashboard numbers straight from the database on every call,
+ *          so the web and mobile dashboards never show stale values.
+ *          "Today" means today in Sri Lanka time.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;

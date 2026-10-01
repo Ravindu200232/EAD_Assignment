@@ -1,3 +1,10 @@
+/*
+ * File:    CheckInServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: QR verification and transfer completion rules for Grid Operators.
+ *          The test clock is Sunday 20 Sep 2026, 10:00 in Sri Lanka.
+ */
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using NSubstitute;

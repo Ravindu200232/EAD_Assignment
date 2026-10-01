@@ -1,3 +1,13 @@
+/*
+ * File:    ProsumerService.cs
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Business rules for prosumer accounts:
+ *          - the NIC is the primary key and must be valid and unique
+ *          - mobile sign-ups wait for Backoffice activation
+ *          - only Backoffice can activate or reactivate an account
+ *          - accounts with upcoming bookings cannot be deactivated
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;

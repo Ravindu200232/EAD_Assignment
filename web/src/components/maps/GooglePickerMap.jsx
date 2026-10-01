@@ -1,3 +1,11 @@
+/*
+ * File:    GooglePickerMap.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Google Maps version of the location chooser. Clicking the map
+ *          moves the pin there, and the pin can also be dragged.
+ * Source:  WEB-28 (Google Maps click events, draggable advanced markers and gmp-dragend).
+ */
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import Spinner from '../ui/Spinner'
 import { createGoogleMap, loadGoogleMaps, pinElement, removeMarker, toPoint } from './googleMaps'

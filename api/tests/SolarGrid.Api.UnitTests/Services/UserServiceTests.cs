@@ -1,3 +1,9 @@
+/*
+ * File:    UserServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Ravindu
+ * Purpose: Rules for creating and managing Backoffice and Grid Operator accounts.
+ */
 using NSubstitute;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;

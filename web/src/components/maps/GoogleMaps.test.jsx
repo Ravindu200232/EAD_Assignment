@@ -1,3 +1,10 @@
+/*
+ * File:    GoogleMaps.test.jsx
+ * Module:  Maps - unit tests
+ * Owner:   Nimthara
+ * Purpose: Checks the Google Maps station map and location chooser with a fake
+ *          Google library: pins, colours, selection, clicks and dragging.
+ */
 import { act, render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createFakeGoogle, latLng } from '../../test/fakeGoogleMaps'

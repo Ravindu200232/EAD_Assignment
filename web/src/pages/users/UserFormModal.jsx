@@ -1,3 +1,10 @@
+/*
+ * File:    UserFormModal.jsx
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: Create or edit a Backoffice / Grid Operator account. The NIC is
+ *          the account key, so it cannot be changed after creation.
+ */
 import { useState } from 'react'
 import { Save } from 'lucide-react'
 import { getErrorMessage, getFieldErrors } from '../../api/client'

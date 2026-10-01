@@ -1,3 +1,12 @@
+/*
+ * File:    mapProvider.js
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Chooses the map service. Google Maps is used when an API key is set
+ *          (VITE_GOOGLE_MAPS_API_KEY in web/.env.local). Without a key, or when
+ *          Google Maps cannot be used, the pages switch to OpenStreetMap.
+ * Source:  WEB-28 (Google Maps JavaScript API).
+ */
 import { useSyncExternalStore } from 'react'
 
 export const GOOGLE_MAPS_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY ?? '').trim()

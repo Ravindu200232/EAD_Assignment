@@ -1,3 +1,9 @@
+/*
+ * File:    Select.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Recessed drop-down list. Options are passed as { value, label }.
+ */
 import { ChevronDown } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { useFieldProps } from './fieldContext'

@@ -1,3 +1,11 @@
+/*
+ * File:    ProsumerStatusActions.jsx
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Activate, reactivate, reject and deactivate buttons for one
+ *          prosumer, each with a confirmation. Staff can deactivate or reject;
+ *          only Backoffice users see Activate and Reactivate.
+ */
 import { useState } from 'react'
 import { Power, PowerOff, UserCheck, UserX } from 'lucide-react'
 import { getErrorMessage } from '../../api/client'
@@ -97,7 +105,7 @@ export default function ProsumerStatusActions({ prosumer, onChanged, size = 'sm'
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-end gap-2">
+      <div className="flex items-center justify-end gap-2">
         {actions.map((action) => {
           const { label, icon, variant } = ACTIONS[action]
           return (

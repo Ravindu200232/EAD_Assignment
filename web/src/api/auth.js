@@ -1,3 +1,9 @@
+/*
+ * File:    auth.js
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Login, current user and password change calls.
+ */
 import client from './client'
 
 // Logs in with a NIC or email. Returns { token, expiresAt, user }.

@@ -1,3 +1,10 @@
+/*
+ * File:    ApiFactory.cs
+ * Module:  E2E Tests
+ * Owner:   Ravindu
+ * Purpose: Starts the real API in memory against a throw-away MongoDB database.
+ *          The database is dropped when the test run ends.
+ */
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;

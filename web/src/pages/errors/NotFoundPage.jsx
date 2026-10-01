@@ -1,3 +1,9 @@
+/*
+ * File:    NotFoundPage.jsx
+ * Module:  Core pages
+ * Owner:   Ravindu
+ * Purpose: Shown for addresses that do not exist in the portal.
+ */
 import { Compass } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 import { homePathFor } from '../../routes/navigation'

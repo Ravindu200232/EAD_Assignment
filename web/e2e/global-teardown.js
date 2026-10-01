@@ -1,3 +1,12 @@
+/*
+ * File:    global-teardown.js
+ * Module:  End-to-end tests
+ * Owner:   Ravindu
+ * Purpose: Deletes the throw-away MongoDB database after the test run.
+ *          Only databases named SolarGridDb_WebE2E_* are ever removed.
+ *          Set E2E_KEEP_DB=1 to keep the data for checking a failure.
+ * Source:  WEB-14 (MongoDB Node.js driver dropDatabase).
+ */
 import { MongoClient } from 'mongodb'
 
 // Runs once after all tests.

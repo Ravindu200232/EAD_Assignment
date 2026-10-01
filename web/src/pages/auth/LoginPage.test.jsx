@@ -1,3 +1,10 @@
+/*
+ * File:    LoginPage.test.jsx
+ * Module:  Authentication - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks the role-based redirect after login, the prosumer refusal
+ *          and how API errors are shown on the form.
+ */
 import { act, screen } from '@testing-library/react'
 import { useLocation } from 'react-router'
 import { describe, expect, it, vi } from 'vitest'

@@ -1,3 +1,9 @@
+/*
+ * File:    ProsumerServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Malith
+ * Purpose: Registration, profile, activation and deactivation rules for prosumers.
+ */
 using NSubstitute;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;

@@ -1,3 +1,13 @@
+/*
+ * File:    CameraScanner.jsx
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Reads a booking QR code with the computer's camera and passes the
+ *          text back. Browsers only allow the camera on secure pages
+ *          (https:// or http://localhost), so a USB scanner or pasting the
+ *          code is always offered as well.
+ * Source:  WEB-22 (ZXing browser QR reader), WEB-23 (MDN getUserMedia).
+ */
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import { BrowserQRCodeReader } from '@zxing/browser'
 import { CameraOff } from 'lucide-react'

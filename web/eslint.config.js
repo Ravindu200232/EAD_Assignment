@@ -1,3 +1,11 @@
+/*
+ * File:    eslint.config.js
+ * Module:  Core (code quality)
+ * Owner:   Ravindu
+ * Purpose: Lint rules for the web app. Browser code, unit tests and the
+ *          Node-based config and end-to-end files each get the right globals.
+ * Source:  WEB-02 (Vite React template).
+ */
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'

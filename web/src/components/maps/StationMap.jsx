@@ -1,3 +1,11 @@
+/*
+ * File:    StationMap.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: The station map used by the pages. It shows Google Maps when a key
+ *          is configured and OpenStreetMap otherwise. Only the map code that is
+ *          really used is downloaded.
+ */
 import { Suspense, lazy } from 'react'
 import { cn } from '../../utils/cn'
 import MapErrorBoundary from './MapErrorBoundary'

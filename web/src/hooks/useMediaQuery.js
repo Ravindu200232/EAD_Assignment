@@ -1,3 +1,10 @@
+/*
+ * File:    useMediaQuery.js
+ * Module:  Core hooks
+ * Owner:   Ravindu
+ * Purpose: Tells a component whether a CSS media query matches, and updates
+ *          when the window is resized.
+ */
 import { useCallback, useSyncExternalStore } from 'react'
 
 // Returns true while the media query matches.

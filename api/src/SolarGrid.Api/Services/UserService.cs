@@ -1,3 +1,10 @@
+/*
+ * File:    UserService.cs
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: Business rules for Backoffice and Grid Operator accounts.
+ *          Prosumer accounts are handled by ProsumerService.
+ */
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
 using SolarGrid.Api.Models;

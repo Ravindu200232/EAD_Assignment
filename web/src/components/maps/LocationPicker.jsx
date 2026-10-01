@@ -1,3 +1,10 @@
+/*
+ * File:    LocationPicker.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: GPS location field for the station form: a map to click on and
+ *          latitude/longitude boxes that stay in step with the pin.
+ */
 import { LocateFixed } from 'lucide-react'
 import Field from '../ui/Field'
 import Input from '../ui/Input'

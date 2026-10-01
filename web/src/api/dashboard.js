@@ -1,3 +1,10 @@
+/*
+ * File:    dashboard.js
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Live numbers for the home page and the staff dashboards, and the
+ *          list of bookings for one day.
+ */
 import client from './client'
 
 // Public numbers for the home page (no login needed).

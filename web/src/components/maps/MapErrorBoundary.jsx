@@ -1,3 +1,12 @@
+/*
+ * File:    MapErrorBoundary.jsx
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Keeps a Google Maps failure inside the map. If the Google map code
+ *          throws, the map is replaced by OpenStreetMap instead of the whole
+ *          page showing the error screen.
+ * Source:  WEB-29 (React error boundaries).
+ */
 import { Component } from 'react'
 import { fallBackToOpenStreetMap } from './mapProvider'
 

@@ -1,3 +1,9 @@
+/*
+ * File:    ProsumerTestData.cs
+ * Module:  E2E Tests
+ * Owner:   Malith
+ * Purpose: Creates prosumer accounts through the real API for end-to-end tests.
+ */
 using System.Net;
 using SolarGrid.Api.Dtos;
 

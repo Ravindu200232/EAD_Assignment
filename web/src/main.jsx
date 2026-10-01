@@ -1,3 +1,11 @@
+/*
+ * File:    main.jsx
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: Start-up: loads the fonts and theme, connects the API client to the
+ *          session and draws the app into #root.
+ * Source:  WEB-02 (Vite React entry), WEB-07 (Fontsource fonts).
+ */
 import '@fontsource-variable/dm-sans'
 import '@fontsource-variable/nunito'
 import './styles/theme.css'

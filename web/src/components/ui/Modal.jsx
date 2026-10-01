@@ -1,3 +1,11 @@
+/*
+ * File:    Modal.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Dialog window built on the native <dialog> element, which keeps
+ *          keyboard focus inside and closes with the Escape key.
+ * Source:  WEB-09 (MDN dialog element).
+ */
 import { useEffect, useId, useRef } from 'react'
 import { X } from 'lucide-react'
 import { cn } from '../../utils/cn'

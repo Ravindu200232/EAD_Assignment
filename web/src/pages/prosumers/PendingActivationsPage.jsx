@@ -1,3 +1,11 @@
+/*
+ * File:    PendingActivationsPage.jsx
+ * Module:  Prosumer Accounts
+ * Owner:   Malith
+ * Purpose: Backoffice queue of prosumers who signed up in the mobile app and
+ *          wait for activation, oldest first. Each sign-up can be activated
+ *          or rejected.
+ */
 import { useState } from 'react'
 import { IdCard, Mail, MapPin, Phone, Sun, UserCheck, UserX, Zap } from 'lucide-react'
 import { Link } from 'react-router'

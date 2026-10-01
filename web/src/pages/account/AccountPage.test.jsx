@@ -1,3 +1,9 @@
+/*
+ * File:    AccountPage.test.jsx
+ * Module:  Authentication - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks the profile details and the password change form.
+ */
 import { screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { changePassword } from '../../api/auth'

@@ -1,3 +1,10 @@
+/*
+ * File:    UserDtos.cs
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: Request and response shapes for user accounts, plus the mapping
+ *          from the User document. Password hashes never leave the API.
+ */
 using System.ComponentModel.DataAnnotations;
 using SolarGrid.Api.Models;
 

@@ -1,3 +1,9 @@
+/*
+ * File:    QrTokenServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Hamnad
+ * Purpose: Signed QR payloads can be read back, and any change to them is detected.
+ */
 using Microsoft.Extensions.Options;
 using SolarGrid.Api.Models;
 using SolarGrid.Api.Security;

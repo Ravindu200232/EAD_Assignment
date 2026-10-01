@@ -1,3 +1,9 @@
+/*
+ * File:    users.js
+ * Module:  Staff Users
+ * Owner:   Ravindu
+ * Purpose: Calls for Backoffice and Grid Operator accounts (Backoffice only).
+ */
 import client from './client'
 
 // Paged list. Filters: role, status, search, page, pageSize.

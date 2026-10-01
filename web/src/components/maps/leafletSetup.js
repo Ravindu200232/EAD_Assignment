@@ -1,3 +1,12 @@
+/*
+ * File:    leafletSetup.js
+ * Module:  Maps
+ * Owner:   Nimthara
+ * Purpose: Shared Leaflet settings for the OpenStreetMap maps: the layer with its required
+ *          credit line, the starting view over Sri Lanka and the round clay
+ *          markers used for stations.
+ * Source:  WEB-15 (Leaflet), WEB-16 (OpenStreetMap tile use and attribution).
+ */
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 

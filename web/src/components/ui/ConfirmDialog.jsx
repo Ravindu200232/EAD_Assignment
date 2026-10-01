@@ -1,3 +1,10 @@
+/*
+ * File:    ConfirmDialog.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: "Are you sure?" dialog for actions such as deactivate, reject or
+ *          cancel. It can also ask for a reason and shows API errors inline.
+ */
 import { useState } from 'react'
 import Alert from './Alert'
 import Button from './Button'

@@ -1,3 +1,15 @@
+/*
+ * File:    playwright.config.js
+ * Module:  End-to-end tests
+ * Owner:   Ravindu
+ * Purpose: Browser tests against the real API and a throw-away MongoDB
+ *          database. Playwright starts the API on port 5090 (with demo data in
+ *          a new database) and a production build of the web app on port 5174,
+ *          runs the tests one after another, and removes the database at the end.
+ * Usage:   npm run e2e             (all tests except screenshots)
+ *          npm run e2e:screens     (saves page screenshots for the report)
+ * Source:  WEB-13 (Playwright webServer, globalTeardown and projects).
+ */
 import { defineConfig, devices } from '@playwright/test'
 
 const API_PORT = 5090

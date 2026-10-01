@@ -1,3 +1,13 @@
+/*
+ * File:    QrTokenService.cs
+ * Module:  Booking QR Codes
+ * Owner:   Hamnad
+ * Purpose: Creates and reads the text inside a booking QR code:
+ *            SSG1.<reservation id>.<nonce>.<signature>
+ *          The signature is an HMAC-SHA256 of the id, nonce and prosumer NIC made with a
+ *          server-only key, so a QR code cannot be forged or edited. A new nonce is issued on
+ *          every approval, which makes older QR codes for the same booking useless.
+ */
 using System.Buffers.Text;
 using System.Security.Cryptography;
 using System.Text;

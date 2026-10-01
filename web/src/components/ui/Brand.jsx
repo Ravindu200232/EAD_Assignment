@@ -1,3 +1,9 @@
+/*
+ * File:    Brand.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Portal logo and name, linked to the start page.
+ */
 import { Sun } from 'lucide-react'
 import { Link } from 'react-router'
 import { cn } from '../../utils/cn'

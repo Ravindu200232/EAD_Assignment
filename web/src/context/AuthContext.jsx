@@ -1,3 +1,12 @@
+/*
+ * File:    AuthContext.jsx
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: Gives every screen the signed-in staff user and the login and
+ *          logout actions. It refuses prosumer accounts (they use the mobile
+ *          app) and signs the user out when the token expires.
+ * Source:  WEB-06 (React context), WEB-20 (storage event for other tabs).
+ */
 import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExternalStore } from 'react'
 import { getCurrentUser, login as loginRequest } from '../api/auth'
 import { STAFF_ROLES } from '../utils/roles'

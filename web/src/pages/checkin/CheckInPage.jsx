@@ -1,3 +1,12 @@
+/*
+ * File:    CheckInPage.jsx
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Operator check-in at the station desk. The operator reads the
+ *          prosumer's QR code with the camera or a USB scanner (or pastes the
+ *          text), the API checks that the code is genuine and on time, and the
+ *          operator then records the delivered energy to complete the booking.
+ */
 import { Suspense, lazy, useRef, useState } from 'react'
 import { Camera, CircleCheck, Eraser, ScanLine, ShieldCheck, TriangleAlert, Zap } from 'lucide-react'
 import { completeTransfer, verifyQrCode } from '../../api/checkin'

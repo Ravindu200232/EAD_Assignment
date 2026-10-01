@@ -1,3 +1,9 @@
+/*
+ * File:    StationDtos.cs
+ * Module:  Microgrid Stations
+ * Owner:   Nimthara
+ * Purpose: Request and response shapes for solar stations and their schedules.
+ */
 using System.ComponentModel.DataAnnotations;
 using SolarGrid.Api.Models;
 

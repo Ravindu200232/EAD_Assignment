@@ -1,3 +1,9 @@
+/*
+ * File:    ErrorScreen.jsx
+ * Module:  Core pages
+ * Owner:   Ravindu
+ * Purpose: Shared look for the 404, 403 and unexpected error screens.
+ */
 import { useDocumentTitle } from '../../hooks/useDocumentTitle'
 import BackgroundBlobs from '../../components/ui/BackgroundBlobs'
 import Button from '../../components/ui/Button'

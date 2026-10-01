@@ -1,3 +1,10 @@
+/*
+ * File:    StatusBadge.jsx
+ * Module:  Core UI
+ * Owner:   Ravindu
+ * Purpose: Coloured pill for statuses, roles and trade types, so every page
+ *          shows the same word in the same colour.
+ */
 import { cn } from '../../utils/cn'
 import { formatLabel } from '../../utils/format'
 

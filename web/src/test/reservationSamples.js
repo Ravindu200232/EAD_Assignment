@@ -1,3 +1,10 @@
+/*
+ * File:    reservationSamples.js
+ * Module:  Unit tests
+ * Owner:   Hamnad
+ * Purpose: Full booking answers shaped like GET /api/reservations/{id}, with
+ *          the rule flags (canModify, isPast, hasQrCode) the pages rely on.
+ */
 import { booking } from './samples'
 
 // A complete booking. Defaults: booked and approved in the past, slot far in the

@@ -1,3 +1,11 @@
+/*
+ * File:    ReservationDetailsPage.test.jsx
+ * Module:  Energy Reservations - unit tests
+ * Owner:   Hamnad
+ * Purpose: Checks the booking page: buttons follow the status and the
+ *          12-hour rule, the QR code only for approved bookings (print and
+ *          copy), cancelling with a reason, approving and missed bookings.
+ */
 import { screen, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { approveReservation, cancelReservation, getReservation, getReservationQr } from '../../api/reservations'

@@ -1,3 +1,10 @@
+/*
+ * File:    ReservationServiceTests.cs
+ * Module:  Unit Tests
+ * Owner:   Hamnad
+ * Purpose: The booking rules: 7-day window, 12-hour notice, bays, overlaps,
+ *          approval, rejection, QR codes and who may see what.
+ */
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using NSubstitute;

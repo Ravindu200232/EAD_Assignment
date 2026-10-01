@@ -1,3 +1,12 @@
+/*
+ * File:    ReservationDetailsPage.jsx
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: One booking: its details, what happened so far (timeline), the
+ *          12-hour change deadline, staff actions (approve, reject, change,
+ *          cancel for the prosumer) and the QR code once it is approved.
+ * Source:  WEB-21 (printing only the QR code card).
+ */
 import { useState } from 'react'
 import { CalendarClock, CalendarX2, CircleX, Clock, History, Pencil, Receipt } from 'lucide-react'
 import { Link, useParams } from 'react-router'

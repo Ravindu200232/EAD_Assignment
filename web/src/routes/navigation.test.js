@@ -1,3 +1,10 @@
+/*
+ * File:    navigation.test.js
+ * Module:  Core (navigation) - unit tests
+ * Owner:   Ravindu
+ * Purpose: Checks the menu per role, the landing page after login and the
+ *          safe return to a requested page.
+ */
 import { describe, expect, it } from 'vitest'
 import { Roles } from '../utils/roles'
 import { groupBySection, homePathFor, navItemsFor, pathAfterLogin } from './navigation'
