@@ -1,3 +1,13 @@
+<#
+  File:    deploy-api.ps1
+  Module:  Deployment
+  Owner:   Ravindu
+  Purpose: Publishes the Web API and hosts it on IIS (site "SolarGridApi", port 8080).
+  Usage:   Open PowerShell as Administrator in the repository folder and run
+             powershell -ExecutionPolicy Bypass -File deploy\iis\deploy-api.ps1
+           Add -OpenFirewall so phones on the same Wi-Fi can reach the API.
+  Source:  API-04 (sources/api-sources.md)
+#>
 #Requires -RunAsAdministrator
 param(
     [string]$SiteName = "SolarGridApi",

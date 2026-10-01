@@ -1,3 +1,14 @@
+/*
+ * File:    CheckInService.cs
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Business rules for checking a prosumer in at a station:
+ *          - the QR code must be genuine (valid signature) and the latest one issued
+ *          - only approved bookings can be completed
+ *          - check-in is open from 2 hours before the start until 1 hour after the end
+ *          - delivered energy cannot exceed one battery bay
+ *          - a finished booking's QR code cannot be used again
+ */
 using System.Globalization;
 using SolarGrid.Api.Common;
 using SolarGrid.Api.Dtos;
@@ -149,8 +160,10 @@ public class CheckInService : ICheckInService
     // Uses the booking rules to fill the response flags.
     private ReservationResponse ToResponse(EnergyReservation reservation)
     {
+        var now = _clock.UtcNow;
         return reservation.ToResponse(
-            ReservationService.CanChange(reservation, _clock.UtcNow),
-            reservation.StartTime - ReservationService.ChangeNotice);
+            ReservationService.CanChange(reservation, now),
+            reservation.StartTime - ReservationService.ChangeNotice,
+            ReservationService.HasEnded(reservation, now));
     }
 }
