@@ -1,9 +1,29 @@
-import { ScanLine, UserCog } from 'lucide-react'
-import { BACKOFFICE_ONLY, STAFF_ROLES } from '../utils/roles'
+/*
+ * File:    navigation.js
+ * Module:  Core (navigation)
+ * Owner:   Ravindu
+ * Purpose: The side menu entries and which roles see them. The first entry a
+ *          role can open is where that role lands after logging in.
+ *          Each team member adds the entries for their own pages here.
+ */
+import { CalendarClock, Gauge, LayoutDashboard, MapPinned, ScanLine, UserCheck, UserCog, UsersRound } from 'lucide-react'
+import { BACKOFFICE_ONLY, Roles, STAFF_ROLES } from '../utils/roles'
 
 // Menu order matters: sections appear in the order of their first entry.
 export const NAV_ITEMS = [
-    { to: '/check-in', label: 'QR check-in', icon: ScanLine, section: 'Operations', roles: STAFF_ROLES },
+  // Added by Malith: each role's home page comes first
+  { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, section: 'Overview', roles: BACKOFFICE_ONLY },
+  { to: '/operations', label: 'Operations', icon: Gauge, section: 'Overview', roles: [Roles.GridOperator] },
+  // Added by Hamnad
+  { to: '/reservations', label: 'Reservations', icon: CalendarClock, section: 'Daily work', roles: STAFF_ROLES },
+  // Added by Ravindu
+  { to: '/check-in', label: 'QR check-in', icon: ScanLine, section: 'Daily work', roles: STAFF_ROLES },
+  // Added by Nimthara
+  { to: '/stations', label: 'Stations', icon: MapPinned, section: 'Energy network', roles: STAFF_ROLES },
+  // Added by Malith
+  { to: '/prosumers', label: 'Prosumers', icon: UsersRound, section: 'People', roles: STAFF_ROLES },
+  { to: '/activations', label: 'Pending activations', icon: UserCheck, section: 'People', roles: BACKOFFICE_ONLY },
+  // Added by Ravindu
   { to: '/users', label: 'Staff users', icon: UserCog, section: 'People', roles: BACKOFFICE_ONLY },
 ]
 
