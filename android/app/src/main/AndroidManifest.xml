@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    AndroidManifest.xml
+  Module:  Core
+  Owner:   Ravindu
+  Purpose: Permissions the app asks for, the application settings and every
+           screen. Each member adds their own activities here.
+  Source:  AND-01 (Android project structure), AND-08 (network security config).
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- The app only talks to the Web API and shows maps. -->
@@ -9,6 +17,9 @@
     <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
     <!-- Grid Operators scan booking QR codes. -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Nimthara: the map starts where the prosumer is, if they allow it. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -26,7 +37,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolarGrid">
 
-        <!-- Start-up, sign in and operator mode -->
+        <!-- Nimthara: the Google Maps key comes from local.properties, never from Git. -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${mapsApiKey}" />
+
+        <!-- Ravindu: start-up, sign in and operator mode -->
         <activity
             android:name=".ui.auth.SplashActivity"
             android:exported="true"
@@ -52,6 +68,45 @@
 
         <activity
             android:name=".ui.operator.CheckInResultActivity"
+            android:exported="false" />
+
+        <!-- Malith: sign-up, profile and password -->
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.auth.RegisteredActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.prosumer.ProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.common.ChangePasswordActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Nimthara: the page of one station -->
+        <activity
+            android:name=".ui.map.StationDetailsActivity"
+            android:exported="false" />
+
+        <!-- Hamnad: one booking, the booking form and the summary after each action -->
+        <activity
+            android:name=".ui.booking.BookingDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.booking.BookingWizardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.booking.BookingResultActivity"
             android:exported="false" />
 
     </application>

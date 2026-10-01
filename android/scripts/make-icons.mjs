@@ -1,4 +1,14 @@
-import { writeFileSync } from 'node:fs'
+/*
+ * File:    make-icons.mjs
+ * Module:  Android build tools
+ * Owner:   Ravindu
+ * Purpose: Turns Lucide icons (the same icon set as the web portal) into
+ *          Android vector drawables in app/src/main/res/drawable/ic_*.xml.
+ *          Each team member adds the icons their screens need to ICONS and
+ *          runs:  node android/scripts/make-icons.mjs
+ * Source:  AND-06 (Lucide icons, ISC licence; Android VectorDrawable format).
+ */
+import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -8,37 +18,64 @@ const drawableFolder = join(here, '..', 'app', 'src', 'main', 'res', 'drawable')
 
 // Lucide icon name -> who added it.
 const ICONS = {
-  // Core, login and operator mode.
-  'sun': 'Lucide',
-  'log-in': 'Lucide',
-  'log-out': 'Lucide',
-  'scan-line': 'Lucide',
-  'qr-code': 'Lucide',
-  'keyboard': 'Lucide',
-  'shield-check': 'Lucide',
-  'zap': 'Lucide',
-  'circle-check': 'Lucide',
-  'circle-alert': 'Lucide',
-  'triangle-alert': 'Lucide',
-  'user-round': 'Lucide',
-  'key-round': 'Lucide',
-  'house': 'Lucide',
-  'refresh-cw': 'Lucide',
-  'arrow-left': 'Lucide',
-  'wifi-off': 'Lucide',
-  'info': 'Lucide',
-  'chevron-right': 'Lucide',
-  'camera': 'Lucide',
-  'phone': 'Lucide',
-  'clock': 'Lucide',
-  'x': 'Lucide',
-  'construction': 'Lucide',
+  // Ravindu: core, login and operator mode
+  'sun': 'Ravindu',
+  'log-in': 'Ravindu',
+  'log-out': 'Ravindu',
+  'scan-line': 'Ravindu',
+  'qr-code': 'Ravindu',
+  'keyboard': 'Ravindu',
+  'shield-check': 'Ravindu',
+  'zap': 'Ravindu',
+  'circle-check': 'Ravindu',
+  'circle-alert': 'Ravindu',
+  'triangle-alert': 'Ravindu',
+  'user-round': 'Ravindu',
+  'key-round': 'Ravindu',
+  'house': 'Ravindu',
+  'refresh-cw': 'Ravindu',
+  'arrow-left': 'Ravindu',
+  'wifi-off': 'Ravindu',
+  'info': 'Ravindu',
+  'chevron-right': 'Ravindu',
+  'camera': 'Ravindu',
+  'phone': 'Ravindu',
+  'clock': 'Ravindu',
+  'x': 'Ravindu',
+  'construction': 'Ravindu',
   // Tabs of the two shells. The member who builds the screen behind the tab
   // keeps using the same icon.
-  'map-pin': 'Lucide',
-  'calendar-days': 'Lucide',
-  'list-checks': 'Lucide',
-  'battery-charging': 'Lucide',
+  'map-pin': 'Ravindu (Nimthara: map)',
+  'calendar-days': 'Ravindu (Hamnad: bookings)',
+  'list-checks': 'Ravindu (Hamnad: today at the station)',
+  'battery-charging': 'Ravindu (Nimthara: battery bays)',
+  // Malith: sign-up, profile and account
+  'mail': 'Malith',
+  'id-card': 'Malith',
+  'gauge': 'Malith',
+  'pencil': 'Malith',
+  'lock': 'Malith',
+  'user-x': 'Malith',
+  'user-plus': 'Malith',
+  'hourglass': 'Malith',
+  // Nimthara: map, stations and battery bays
+  'map': 'Nimthara',
+  'list': 'Nimthara',
+  'search': 'Nimthara',
+  'minus': 'Nimthara',
+  'plus': 'Nimthara',
+  'navigation': 'Nimthara',
+  'battery': 'Nimthara',
+  'locate-fixed': 'Nimthara',
+  'sun-medium': 'Nimthara',
+  // Hamnad: bookings, the booking form and QR codes
+  'funnel': 'Hamnad',
+  'ticket': 'Hamnad',
+  'arrow-right': 'Hamnad',
+  'check': 'Hamnad',
+  'calendar-plus': 'Hamnad',
+  'ban': 'Hamnad',
+  'history': 'Hamnad',
 }
 
 /*
@@ -162,10 +199,21 @@ function toPathData([tag, attrs]) {
   }
 }
 
+// Loads the drawing of a Lucide icon. A few names are only aliases that point
+// to another icon (for example "history" is "rotate-ccw-clock"), so the alias is
+// followed to the file that holds the drawing.
+async function iconData(name) {
+  const file = join(iconFolder, `${name}.mjs`)
+  const module = await import(pathToFileURL(file).href)
+  if (module.__iconData) return module.__iconData
+  const target = /from '\.\/([a-z0-9-]+)\.mjs'/.exec(readFileSync(file, 'utf8'))
+  if (!target) throw new Error(`No icon data in ${name}.mjs`)
+  return iconData(target[1])
+}
+
 // Writes one vector drawable file for a Lucide icon.
 async function writeIcon(name, owner) {
-  const module = await import(pathToFileURL(join(iconFolder, `${name}.mjs`)).href)
-  const paths = module.__iconData.node
+  const paths = (await iconData(name)).node
     .map((shape) =>
       [
         '    <path',

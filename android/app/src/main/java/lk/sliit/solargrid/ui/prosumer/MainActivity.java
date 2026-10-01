@@ -1,20 +1,49 @@
+/*
+ * File:    MainActivity.java
+ * Module:  Prosumer shell
+ * Owner:   Ravindu
+ * Purpose: The home of a prosumer: four tabs at the bottom and one screen at a
+ *          time above them. Each member plugs their own screen into the tab
+ *          they own, by changing one line in fragmentFor().
+ * Source:  AND-10 (Material bottom navigation with fragments),
+ *          AND-35 (coming back to the open shell, added by Hamnad).
+ */
 package lk.sliit.solargrid.ui.prosumer;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import lk.sliit.solargrid.R;
 import lk.sliit.solargrid.databinding.ActivityMainBinding;
+import lk.sliit.solargrid.ui.booking.BookingsFragment;
 import lk.sliit.solargrid.ui.common.AccountFragment;
 import lk.sliit.solargrid.ui.common.BaseActivity;
-import lk.sliit.solargrid.ui.common.PlaceholderFragment;
+import lk.sliit.solargrid.ui.map.StationsFragment;
 
 public class MainActivity extends BaseActivity {
 
+    private static final String EXTRA_BOOKINGS_SCOPE = "bookingsScope";
+
     private ActivityMainBinding binding;
+
+    /** The booking list tab to open next, set by openBookings(). */
+    @Nullable
+    private String bookingsScope;
+    private boolean newIntentWaiting;
+
+    /**
+     * Opens (or brings back) the Bookings tab on one of its lists, for example
+     * the waiting list after a new booking (added by Hamnad).
+     */
+    public static Intent openBookings(Context context, String scope) {
+        return new Intent(context, MainActivity.class).putExtra(EXTRA_BOOKINGS_SCOPE, scope);
+    }
 
     /** Builds the shell and opens the Home tab. */
     @Override
@@ -35,7 +64,37 @@ public class MainActivity extends BaseActivity {
         });
 
         if (savedInstanceState == null) {
-            binding.bottomNav.setSelectedItemId(R.id.tab_home);
+            bookingsScope = getIntent().getStringExtra(EXTRA_BOOKINGS_SCOPE);
+            binding.bottomNav.setSelectedItemId(bookingsScope == null ? R.id.tab_home : R.id.tab_bookings);
+        }
+    }
+
+    /** A summary screen sent the prosumer back here; the tab is chosen once the screen is back. */
+    @Override
+    protected void onNewIntent(@NonNull Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        newIntentWaiting = true;
+    }
+
+    /** Opens the booking list the summary screen asked for. */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!newIntentWaiting || binding == null) {
+            return;
+        }
+        newIntentWaiting = false;
+        String scope = getIntent().getStringExtra(EXTRA_BOOKINGS_SCOPE);
+        if (scope == null) {
+            return;
+        }
+        Fragment current = getSupportFragmentManager().findFragmentById(R.id.tab_content);
+        if (current instanceof BookingsFragment) {
+            ((BookingsFragment) current).showScope(scope);
+        } else {
+            bookingsScope = scope;
+            binding.bottomNav.setSelectedItemId(R.id.tab_bookings);
         }
     }
 
@@ -55,17 +114,19 @@ public class MainActivity extends BaseActivity {
     /** The screen behind each tab. */
     private Fragment fragmentFor(int itemId) {
         if (itemId == R.id.tab_map) {
-            // The nearby stations map.
-            return PlaceholderFragment.of(R.string.map_screen);
+            // Nimthara: the nearby stations map.
+            return new StationsFragment();
         }
         if (itemId == R.id.tab_bookings) {
-            // The booking list and the booking form.
-            return PlaceholderFragment.of(R.string.bookings_screen);
+            // Hamnad: the booking lists; the form opens from there.
+            String scope = bookingsScope;
+            bookingsScope = null;
+            return BookingsFragment.showing(scope);
         }
         if (itemId == R.id.tab_account) {
             return new AccountFragment();
         }
-        // The dashboard with the booking counts.
-        return PlaceholderFragment.of(R.string.home_screen);
+        // Malith: the dashboard with the booking counts.
+        return new HomeFragment();
     }
 }
