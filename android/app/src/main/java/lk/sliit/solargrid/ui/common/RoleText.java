@@ -1,3 +1,11 @@
+/*
+ * File:    RoleText.java
+ * Module:  Shared screens
+ * Owner:   Ravindu
+ * Purpose: Turns the role word the API sends into the words people use.
+ *          "GridOperator" reads badly on a screen, so it becomes
+ *          "Grid Operator".
+ */
 package lk.sliit.solargrid.ui.common;
 
 import android.content.Context;

@@ -1,3 +1,12 @@
+/*
+ * File:    SessionDao.java
+ * Module:  Local database
+ * Owner:   Ravindu
+ * Purpose: Keeps the login details (token, when it ends and who is signed in)
+ *          in SQLite, so the app can open straight into the right home screen
+ *          until the token expires.
+ * Source:  AND-09 (Android SQLiteOpenHelper and ContentValues).
+ */
 package lk.sliit.solargrid.data.local;
 
 import android.content.ContentValues;

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    activity_booking_result.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: The summary page after a booking is made, changed or cancelled:
+           what happened, the booking as the API saved it, and what happens
+           next.
+  Source:  AND-02 (clay design system).
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

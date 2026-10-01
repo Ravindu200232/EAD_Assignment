@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    activity_check_in_result.xml
+  Module:  Operator Check-in
+  Owner:   Ravindu
+  Purpose: What the server said about a scanned code, the booking behind it,
+           and the box where the operator writes the energy that was really
+           delivered before finishing the transfer.
+  Source:  AND-02 (clay design system).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

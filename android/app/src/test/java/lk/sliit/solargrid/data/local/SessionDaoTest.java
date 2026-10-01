@@ -1,3 +1,12 @@
+/*
+ * File:    SessionDaoTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks the SQLite table that keeps the login: it saves one row,
+ *          replaces it on the next login, reads it back and forgets it on
+ *          logout.
+ * Source:  AND-13 (Robolectric).
+ */
 package lk.sliit.solargrid.data.local;
 
 import static org.junit.Assert.assertEquals;

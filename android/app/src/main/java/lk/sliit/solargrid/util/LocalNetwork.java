@@ -1,3 +1,15 @@
+/*
+ * File:    LocalNetwork.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: From Android 17 an app may only reach a server on the local network
+ *          (a home or campus Wi-Fi, or the computer that runs the emulator at
+ *          10.0.2.2) after the user allows it. During development and in the
+ *          demo the Web API lives on such an address, so the app asks for this
+ *          permission before its first request. A server on the internet, or
+ *          one on the phone itself, needs nothing.
+ * Source:  AND-23 (Android local network permission).
+ */
 package lk.sliit.solargrid.util;
 
 import android.content.Context;

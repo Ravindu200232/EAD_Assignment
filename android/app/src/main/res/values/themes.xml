@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    themes.xml
+  Module:  Theme
+  Owner:   Ravindu
+  Purpose: The app theme: Material 3 components dressed in the clay look
+           (lavender canvas, violet accent, very round corners, soft shadows,
+           Nunito headings and DM Sans text).
+  Source:  AND-02 (clay design system), AND-05 (Material Components theming).
+-->
 <resources>
 
     <style name="Theme.SolarGrid" parent="Theme.Material3.Light.NoActionBar">

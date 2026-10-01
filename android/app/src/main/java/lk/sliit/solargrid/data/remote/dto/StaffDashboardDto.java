@@ -1,3 +1,12 @@
+/*
+ * File:    StaffDashboardDto.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: What GET api/dashboard/summary sends to staff. The operator's
+ *          "Today" tab shows three of its numbers: bookings starting today,
+ *          bookings waiting for approval and approved bookings still to come.
+ *          The API counts them over all stations.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 import java.util.ArrayList;

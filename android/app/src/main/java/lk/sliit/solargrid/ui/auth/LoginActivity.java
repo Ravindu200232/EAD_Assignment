@@ -1,5 +1,15 @@
+/*
+ * File:    LoginActivity.java
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: The sign-in screen. It only checks that both boxes are filled; the
+ *          API decides whether the account may sign in, and its message is
+ *          shown exactly as it came, so a pending or deactivated prosumer
+ *          learns what to do next.
+ */
 package lk.sliit.solargrid.ui.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -37,6 +47,8 @@ public class LoginActivity extends BaseActivity {
         showNotice(noticeToShow());
 
         binding.loginSubmit.setOnClickListener(view -> submit());
+        binding.loginRegister.setOnClickListener(view ->
+                startActivity(new Intent(this, RegisterActivity.class)));
         binding.loginPassword.setOnEditorActionListener((view, actionId, event) -> {
             // The keyboard "done" key signs in as well.
             if (actionId == EditorInfo.IME_ACTION_DONE) {

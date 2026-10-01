@@ -1,3 +1,10 @@
+/*
+ * File:    TimesTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks that API times are read correctly and shown in Sri Lankan
+ *          time. Getting this wrong would move every booking by 5.5 hours.
+ */
 package lk.sliit.solargrid.util;
 
 import static org.junit.Assert.assertEquals;

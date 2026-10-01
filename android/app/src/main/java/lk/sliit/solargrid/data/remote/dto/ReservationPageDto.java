@@ -1,3 +1,10 @@
+/*
+ * File:    ReservationPageDto.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: One page of bookings as GET api/reservations sends it, with the
+ *          numbers the list needs to know whether more pages follow.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 import java.util.ArrayList;

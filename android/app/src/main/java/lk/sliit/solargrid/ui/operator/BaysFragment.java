@@ -1,3 +1,12 @@
+/*
+ * File:    BaysFragment.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: The operator Bays tab. When a battery bay breaks or is repaired,
+ *          the operator sets how many bays are free, so prosumers can only
+ *          book bays that work. The API checks the number against the size of
+ *          the station; the chosen station is remembered for next time.
+ */
 package lk.sliit.solargrid.ui.operator;
 
 import android.content.Context;

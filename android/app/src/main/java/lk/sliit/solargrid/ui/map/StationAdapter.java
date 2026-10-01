@@ -1,3 +1,11 @@
+/*
+ * File:    StationAdapter.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: Draws the stations as a list of cards, nearest first, and says
+ *          which one was tapped.
+ * Source:  AND-25 (RecyclerView lists).
+ */
 package lk.sliit.solargrid.ui.map;
 
 import android.annotation.SuppressLint;

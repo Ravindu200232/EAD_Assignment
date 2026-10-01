@@ -1,3 +1,11 @@
+/*
+ * File:    BookingFilterTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Checks that the booking filter writes its choices the way the API
+ *          reads them, knows when anything besides the tab is set, and clears
+ *          everything but the tab.
+ */
 package lk.sliit.solargrid.data.model;
 
 import static org.junit.Assert.assertEquals;

@@ -1,3 +1,13 @@
+/*
+ * File:    ReservationDaoTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Checks the SQLite copy of the bookings: every field comes back,
+ *          the soonest slot is first, a copy never allows a change, a slot
+ *          that ended since it was saved counts as past, and logging out
+ *          removes the bookings.
+ * Source:  AND-13 (Robolectric).
+ */
 package lk.sliit.solargrid.data.local;
 
 import static org.junit.Assert.assertEquals;

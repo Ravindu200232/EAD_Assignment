@@ -1,3 +1,12 @@
+/*
+ * File:    ProblemDetails.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: The error body the Web API sends (RFC 7807). Validation problems
+ *          also carry a field list, which the forms use to mark the box that
+ *          needs fixing.
+ * Source:  AND-19 (ProblemDetails error format).
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 import java.util.List;

@@ -1,3 +1,12 @@
+/*
+ * File:    LocationFinder.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: Finds where the phone is, once, for the map of nearby stations. The
+ *          app uses the fused location provider of Google Play services; the
+ *          tests swap in a fixed place, so they never depend on a real GPS.
+ * Source:  AND-28 (fused location provider).
+ */
 package lk.sliit.solargrid.util;
 
 import android.Manifest;

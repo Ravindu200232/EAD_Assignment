@@ -1,3 +1,14 @@
+/*
+ * File:    BookingResultActivity.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The summary page the brief asks for after every booking action.
+ *          It shows the booking exactly as the API saved it - made, changed
+ *          or cancelled - with its reference, slot and status, and says what
+ *          happens next. From here the prosumer opens the booking or goes
+ *          back to the list.
+ * Source:  AND-35 (returning to an open screen).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.content.Context;

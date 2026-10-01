@@ -1,3 +1,13 @@
+/*
+ * File:    SlotChoices.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Works out which slots the booking form offers. For a prosumer the
+ *          API only lists slots that can still be booked (open, with a free
+ *          bay, not started). A booking that is being changed already holds a
+ *          bay in its own slot, so that slot is added back even when the API
+ *          left it out because it is now full. The web portal does the same.
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import androidx.annotation.Nullable;

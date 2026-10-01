@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    activity_splash.xml
+  Module:  Authentication
+  Owner:   Ravindu
+  Purpose: The first screen. It shows the app mark while the saved login is
+           read from SQLite and checked with the server.
+  Source:  AND-02 (clay design system).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"

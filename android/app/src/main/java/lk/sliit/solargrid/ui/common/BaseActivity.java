@@ -1,3 +1,13 @@
+/*
+ * File:    BaseActivity.java
+ * Module:  Shared screens
+ * Owner:   Ravindu
+ * Purpose: The things every screen in the app needs: quick access to the
+ *          shared objects, one way of showing a message, one way of sending
+ *          the user back to the login screen when the session ends, and the
+ *          local network permission that Android 17 asks for.
+ * Source:  AND-12 (asking for a permission), AND-23 (local network permission).
+ */
 package lk.sliit.solargrid.ui.common;
 
 import android.content.Intent;
@@ -105,8 +115,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Sends the user to the login screen when the API refused the token.
      * Returns true when it did, so the caller can stop working on the answer.
+     * Tabs call it through their activity as well.
      */
-    protected boolean handledSessionEnd(ApiError error) {
+    public boolean handledSessionEnd(ApiError error) {
         if (error == null || !error.isSessionEnded()) {
             return false;
         }

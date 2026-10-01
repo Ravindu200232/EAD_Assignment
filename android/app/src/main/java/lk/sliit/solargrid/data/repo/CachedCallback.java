@@ -1,3 +1,12 @@
+/*
+ * File:    CachedCallback.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: How a screen hears the answer of a call that has a copy on the
+ *          phone. When the API cannot be reached the saved copy is handed over
+ *          together with the reason, so the screen can show the data and say
+ *          that it may be old. Both methods run on the main thread.
+ */
 package lk.sliit.solargrid.data.repo;
 
 import androidx.annotation.Nullable;

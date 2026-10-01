@@ -1,3 +1,12 @@
+/*
+ * File:    BookingTimelineTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Checks the history steps of a booking: their order, which steps
+ *          each status has, and who is named for each step - "you" for the
+ *          viewer, and staff NICs only for staff.
+ * Source:  AND-13 (Robolectric).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import static org.junit.Assert.assertEquals;

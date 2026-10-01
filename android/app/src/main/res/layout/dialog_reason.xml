@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    dialog_reason.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: The inside of the cancel dialog: what cancelling means and an
+           optional reason (at most 200 characters, as the API allows).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"

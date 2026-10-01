@@ -1,3 +1,10 @@
+/*
+ * File:    UserDto.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: A user account as the Web API sends it. Gson fills the fields, so
+ *          their names match the JSON exactly.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 public class UserDto {

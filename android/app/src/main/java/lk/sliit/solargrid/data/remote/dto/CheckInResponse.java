@@ -1,3 +1,11 @@
+/*
+ * File:    CheckInResponse.java
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: What POST api/checkin/verify sends back: whether the transfer may
+ *          be finished now, a sentence for the operator, the phone number to
+ *          call, the check-in window and the booking itself.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 public class CheckInResponse {

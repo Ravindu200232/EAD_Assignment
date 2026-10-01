@@ -1,3 +1,13 @@
+/*
+ * File:    HomeFragment.java
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: The prosumer home screen. It shows how many bookings are waiting
+ *          for approval and how many approved ones are still to come (the two
+ *          numbers the brief asks for), the finished transfers, the next
+ *          booking and the ones after it. The API does all the counting.
+ * Source:  AND-25 (RecyclerView lists), AND-26 (pull to refresh).
+ */
 package lk.sliit.solargrid.ui.prosumer;
 
 import android.os.Bundle;

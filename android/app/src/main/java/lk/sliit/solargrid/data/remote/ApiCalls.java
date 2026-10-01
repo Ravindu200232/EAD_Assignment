@@ -1,3 +1,12 @@
+/*
+ * File:    ApiCalls.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: Sends a Retrofit call and hands the answer to the screen on the
+ *          main thread. Every repository in the app goes through here, so the
+ *          error handling and the test waiting are the same everywhere.
+ * Source:  AND-17 (Retrofit enqueue and callbacks).
+ */
 package lk.sliit.solargrid.data.remote;
 
 import androidx.annotation.NonNull;

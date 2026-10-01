@@ -1,3 +1,15 @@
+/*
+ * File:    BookingFlowTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Walks the booking screens on the emulator against a stand-in API:
+ *          booking a slot and changing a booking through the form, the QR
+ *          code of an approved booking, cancelling with a reason, the rule
+ *          that hides changes inside 12 hours, the list tabs and filters, and
+ *          an operator cancelling for a prosumer. Every action must end on
+ *          the summary screen.
+ * Source:  AND-15 (Espresso), AND-14 (MockWebServer).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import static androidx.test.espresso.Espresso.onView;

@@ -1,3 +1,10 @@
+/*
+ * File:    Roles.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: The role and status words the Web API sends. Keeping them in one
+ *          place stops spelling mistakes in the screens.
+ */
 package lk.sliit.solargrid.data.model;
 
 public final class Roles {

@@ -1,3 +1,13 @@
+/*
+ * File:    BookingTextsTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Checks the sentences the booking screens build from the API's
+ *          flags: what happens next for every status (for prosumers and for
+ *          staff), until when a booking can be changed, and the labels of the
+ *          day and slot buttons of the booking form.
+ * Source:  AND-13 (Robolectric).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import static org.junit.Assert.assertEquals;

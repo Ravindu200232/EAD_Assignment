@@ -1,3 +1,11 @@
+/*
+ * File:    ReservationDto.java
+ * Module:  API access
+ * Owner:   Ravindu (shared: the booking screens use the same shape)
+ * Purpose: One energy booking as the Web API sends it, including the flags the
+ *          API works out for us: can it still be changed, has it a QR code and
+ *          is its time already over.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 public class ReservationDto {

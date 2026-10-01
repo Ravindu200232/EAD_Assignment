@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    view_timeline_step.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: One step of a booking's history: a dot, what happened, when, and
+           who did it or why.
+  Source:  AND-02 (clay design system).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

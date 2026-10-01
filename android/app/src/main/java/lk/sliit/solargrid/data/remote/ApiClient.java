@@ -1,3 +1,12 @@
+/*
+ * File:    ApiClient.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: Builds the Retrofit client: where the API lives, how long the app
+ *          waits for an answer, the token header and the JSON reader. It is
+ *          the only place in the app that knows about HTTP.
+ * Source:  AND-17 (Retrofit set-up), AND-18 (OkHttp client, timeouts and logging).
+ */
 package lk.sliit.solargrid.data.remote;
 
 import java.util.concurrent.TimeUnit;

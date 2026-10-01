@@ -1,3 +1,13 @@
+/*
+ * File:    TabActions.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Chooses a tab of a TabLayout straight away. On a busy emulator an
+ *          Espresso tap can arrive so late that Android reads it as a long
+ *          press, and a long press on a tab only shows its tooltip, so the
+ *          tests choose the tab directly and then wait for the app.
+ * Source:  AND-15 (Espresso).
+ */
 package lk.sliit.solargrid.testing;
 
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;

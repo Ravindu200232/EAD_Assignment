@@ -1,3 +1,13 @@
+/*
+ * File:    CheckInRepositoryTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks the two operator calls against a stand-in server: a scanned
+ *          code is sent as it was read, the booking comes back in full, a code
+ *          the API refuses keeps its message, and finishing a transfer records
+ *          the delivered energy.
+ * Source:  AND-13 (Robolectric), AND-14 (MockWebServer).
+ */
 package lk.sliit.solargrid.data.repo;
 
 import static org.junit.Assert.assertEquals;

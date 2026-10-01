@@ -1,3 +1,12 @@
+/*
+ * File:    LoginFlowTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Signs in on the emulator and checks that each role lands on the
+ *          right home screen, that empty boxes are marked, and that a refusal
+ *          from the API is shown in the words the API used.
+ * Source:  AND-15 (Espresso).
+ */
 package lk.sliit.solargrid.ui.auth;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -33,6 +42,7 @@ public class LoginFlowTest {
     @Test
     public void prosumerGoesToTheProsumerHome() {
         app.api.willAnswer(200, Samples.login(Roles.PROSUMER));
+        app.api.willAnswer(200, Samples.dashboard());
 
         ActivityScenario.launch(LoginActivity.class);
         signIn("kasun@example.com", "Prosumer@123");

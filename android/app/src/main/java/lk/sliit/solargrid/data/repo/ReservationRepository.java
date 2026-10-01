@@ -1,3 +1,15 @@
+/*
+ * File:    ReservationRepository.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Everything about bookings: the lists, one booking, making,
+ *          changing and cancelling, and the QR code. The API applies every
+ *          rule (7-day window, 12-hour notice, free bays, energy limit) and
+ *          says so in its messages. The last bookings seen are kept in SQLite
+ *          so the lists still show offline, but a copy on the phone never
+ *          allows a change.
+ * Source:  AND-21 (background work with an executor).
+ */
 package lk.sliit.solargrid.data.repo;
 
 import android.os.Handler;

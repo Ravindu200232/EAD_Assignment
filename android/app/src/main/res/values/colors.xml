@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    colors.xml
+  Module:  Theme
+  Owner:   Ravindu
+  Purpose: The clay colour tokens, the same values as the web portal's theme.
+  Source:  AND-02 (clay design system, see WEB-01).
+-->
 <resources>
     <!-- Surfaces -->
     <color name="canvas">#F4F1FA</color>

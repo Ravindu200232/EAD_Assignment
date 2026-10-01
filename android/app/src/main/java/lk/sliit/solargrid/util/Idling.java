@@ -1,3 +1,12 @@
+/*
+ * File:    Idling.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: Counts the requests that are still running. The app does not use
+ *          the number itself; the instrumented tests read it so they wait for
+ *          the network instead of sleeping for a fixed time.
+ * Source:  AND-16 (Espresso idling resources).
+ */
 package lk.sliit.solargrid.util;
 
 import java.util.concurrent.atomic.AtomicInteger;

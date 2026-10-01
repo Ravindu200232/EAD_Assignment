@@ -1,3 +1,10 @@
+/*
+ * File:    ApiErrorTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks that a failed request turns into the sentence the API wrote,
+ *          and that validation messages end up on the right form box.
+ */
 package lk.sliit.solargrid.data.remote;
 
 import static org.junit.Assert.assertEquals;

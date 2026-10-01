@@ -1,3 +1,13 @@
+/*
+ * File:    StationRepositoryTest.java
+ * Module:  Tests
+ * Owner:   Nimthara
+ * Purpose: Checks the station calls against a stand-in server: the nearby
+ *          search sends plain numbers, the stations are saved for offline use
+ *          and come back when the server is gone, the slots ask for one day,
+ *          and a bay change is sent with PATCH.
+ * Source:  AND-13 (Robolectric), AND-14 (MockWebServer).
+ */
 package lk.sliit.solargrid.data.repo;
 
 import static org.junit.Assert.assertEquals;

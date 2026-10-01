@@ -1,3 +1,13 @@
+/*
+ * File:    ReservationDao.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Keeps the bookings the prosumer last looked at in SQLite, so the
+ *          lists and the booking page still show without a connection. It is a
+ *          read-only copy: every change goes through the API first. The rows
+ *          belong to one user and are removed at logout.
+ * Source:  AND-09 (Android SQLiteOpenHelper and ContentValues).
+ */
 package lk.sliit.solargrid.data.local;
 
 import android.content.ContentValues;

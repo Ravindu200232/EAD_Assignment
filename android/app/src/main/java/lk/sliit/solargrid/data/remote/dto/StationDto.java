@@ -1,3 +1,12 @@
+/*
+ * File:    StationDto.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: One solar station as the Web API sends it: where it is, how many
+ *          battery bays it has and how many are free, how much energy one
+ *          booking may use, and its weekly opening hours. The nearby search
+ *          also adds the distance from the prosumer.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 import java.util.ArrayList;

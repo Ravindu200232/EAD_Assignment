@@ -1,3 +1,11 @@
+/*
+ * File:    BookingRequests.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: What the app sends to make, change and cancel a booking. The API
+ *          checks the 7-day window, the 12-hour notice, the free bays and the
+ *          energy limit of the station, so these are only the chosen values.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 public final class BookingRequests {

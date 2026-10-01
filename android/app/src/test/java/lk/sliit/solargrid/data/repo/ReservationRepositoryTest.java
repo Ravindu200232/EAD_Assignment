@@ -1,3 +1,14 @@
+/*
+ * File:    ReservationRepositoryTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Checks the booking calls against a stand-in server: the list sends
+ *          the tab and the filters, offline the saved bookings of the same tab
+ *          are shown, a booking and a change send the right body and method,
+ *          a cancel sends its reason as JSON, the operator day list asks for
+ *          one day, and the API's refusals reach the screen unchanged.
+ * Source:  AND-13 (Robolectric), AND-14 (MockWebServer).
+ */
 package lk.sliit.solargrid.data.repo;
 
 import static org.junit.Assert.assertEquals;

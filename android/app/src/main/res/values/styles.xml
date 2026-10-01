@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    styles.xml
+  Module:  Theme
+  Owner:   Ravindu
+  Purpose: Text styles, corner shapes and the clay widget styles (buttons,
+           cards, inputs, chips, bottom bar) used by every screen.
+  Source:  AND-02 (clay design system), AND-05 (Material Components styles).
+-->
 <resources>
 
     <!-- Text -->

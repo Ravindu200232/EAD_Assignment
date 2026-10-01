@@ -1,3 +1,10 @@
+/*
+ * File:    OpeningHoursTest.java
+ * Module:  Tests
+ * Owner:   Nimthara
+ * Purpose: Checks how a station schedule is written: the seven days in order,
+ *          closed days, stations that never close, and where the map starts.
+ */
 package lk.sliit.solargrid.util;
 
 import static org.junit.Assert.assertEquals;

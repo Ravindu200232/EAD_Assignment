@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    nav_operator.xml
+  Module:  Operator shell
+  Owner:   Ravindu
+  Purpose: The four tabs a Grid Operator sees. Today and Bays are built by
+           Hamnad and Nimthara.
+-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item

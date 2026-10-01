@@ -1,3 +1,13 @@
+/*
+ * File:    SessionStore.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: Holds the signed-in user while the app is open and keeps the same
+ *          details in SQLite, so the app opens on the right home screen
+ *          without asking for the password again. Database work happens on a
+ *          background thread; the value in memory is read from any thread.
+ * Source:  AND-09 (SQLite storage), AND-21 (background work with an executor).
+ */
 package lk.sliit.solargrid.session;
 
 import android.os.Handler;
@@ -23,6 +33,7 @@ public class SessionStore {
         void onLoaded(@Nullable Session session);
     }
 
+    private final SolarGridDbHelper database;
     private final SessionDao dao;
     private final Executor worker;
     private final Handler mainThread = new Handler(Looper.getMainLooper());
@@ -33,6 +44,7 @@ public class SessionStore {
 
     /** Needs the database and the background thread it should use. */
     public SessionStore(SolarGridDbHelper helper, Executor worker) {
+        this.database = helper;
         this.dao = new SessionDao(helper);
         this.worker = worker;
     }
@@ -105,11 +117,14 @@ public class SessionStore {
         worker.execute(() -> dao.save(fresh));
     }
 
-    /** Forgets the session after the user taps "Log out". */
+    /**
+     * Forgets the session after the user taps "Log out", together with the
+     * profile and any other data of that user kept on the phone.
+     */
     public void clear() {
         this.session = null;
         this.loaded = true;
-        worker.execute(dao::clear);
+        worker.execute(database::clearPersonalData);
     }
 
     /**

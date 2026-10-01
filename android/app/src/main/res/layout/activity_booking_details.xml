@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    activity_booking_details.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: One booking: its status and what happens next, the QR code once it
+           is approved, the details, until when it can be changed, and its
+           history.
+  Source:  AND-02 (clay design system), AND-32 (QR code picture).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

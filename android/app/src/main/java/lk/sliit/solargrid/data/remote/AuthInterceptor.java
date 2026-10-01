@@ -1,3 +1,14 @@
+/*
+ * File:    AuthInterceptor.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: Adds the login token to every request and watches for the answer
+ *          "401 Unauthorized". When that happens with a token, the session is
+ *          over (it ran out, the account was deactivated or the role changed),
+ *          so the saved login is thrown away and the user is asked to sign in
+ *          again.
+ * Source:  AND-18 (OkHttp interceptors).
+ */
 package lk.sliit.solargrid.data.remote;
 
 import androidx.annotation.NonNull;

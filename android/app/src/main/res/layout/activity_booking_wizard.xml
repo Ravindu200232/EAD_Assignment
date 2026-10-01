@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    activity_booking_wizard.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: The booking form in four steps - station, day and free slot, energy
+           and direction, and a review - with one step shown at a time. The
+           same form changes an existing booking.
+  Source:  AND-02 (clay design system), AND-30 (chips), AND-33 (step bar).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

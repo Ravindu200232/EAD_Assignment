@@ -1,3 +1,11 @@
+/*
+ * File:    OpeningHours.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: Turns the weekly schedule of a station into the lines the screens
+ *          show: the hours of today on the map card, and all seven days on the
+ *          station page, with "Closed" for the days that are missing.
+ */
 package lk.sliit.solargrid.util;
 
 import androidx.annotation.Nullable;

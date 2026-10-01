@@ -1,3 +1,11 @@
+/*
+ * File:    SlotChoicesTest.java
+ * Module:  Tests
+ * Owner:   Hamnad
+ * Purpose: Checks which slots the booking form offers: the free slots from
+ *          the API, earliest first, plus the booking's own slot when a
+ *          booking is being changed on its own day and station.
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import static org.junit.Assert.assertEquals;

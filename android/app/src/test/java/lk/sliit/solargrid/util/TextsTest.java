@@ -1,3 +1,10 @@
+/*
+ * File:    TextsTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks the small helpers that write energy amounts, empty values
+ *          and the letters on the account picture.
+ */
 package lk.sliit.solargrid.util;
 
 import static org.junit.Assert.assertEquals;

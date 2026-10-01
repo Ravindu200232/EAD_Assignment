@@ -1,3 +1,10 @@
+/*
+ * File:    Texts.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: Small helpers for the words and numbers shown on screen, so every
+ *          screen writes energy amounts and empty values the same way.
+ */
 package lk.sliit.solargrid.util;
 
 import androidx.annotation.Nullable;

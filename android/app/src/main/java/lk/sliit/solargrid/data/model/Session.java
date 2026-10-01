@@ -1,3 +1,10 @@
+/*
+ * File:    Session.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: The signed-in user together with their token. The same shape is
+ *          stored in SQLite, so the app can open without logging in again.
+ */
 package lk.sliit.solargrid.data.model;
 
 import java.time.Instant;

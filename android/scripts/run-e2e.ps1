@@ -1,3 +1,16 @@
+<#
+    File:    run-e2e.ps1
+    Module:  Android tests
+    Owner:   Ravindu
+    Purpose: Runs the Android tests that talk to a real Web API. It starts the
+             API on its own port with a throw-away MongoDB database and demo
+             data, waits until it answers, runs the tests marked @LiveApi on
+             the emulator, then stops the API and removes the database. The
+             IIS demo data is never touched.
+    Usage:   powershell -ExecutionPolicy Bypass -File android\scripts\run-e2e.ps1
+             Add -KeepDatabase to look at the data after a failure.
+    Source:  AND-15 (Espresso), WEB-13 (the same idea as the Playwright set-up).
+#>
 [CmdletBinding()]
 param(
     [int]$ApiPort = 5090,

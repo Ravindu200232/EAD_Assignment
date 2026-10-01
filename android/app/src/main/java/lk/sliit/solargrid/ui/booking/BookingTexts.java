@@ -1,3 +1,12 @@
+/*
+ * File:    BookingTexts.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The words every booking screen uses: the direction of the energy,
+ *          what happens next for each status, and until when a booking can
+ *          still be changed. The API decides every rule; these sentences only
+ *          explain its flags (canModify, hasQrCode, isPast) to the prosumer.
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.content.Context;

@@ -1,3 +1,12 @@
+/*
+ * File:    AuthRepositoryTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks signing in against a stand-in server: the token is kept, a
+ *          refused login shows the message of the API, validation messages
+ *          reach the form boxes, and a token the API refuses ends the session.
+ * Source:  AND-13 (Robolectric), AND-14 (MockWebServer).
+ */
 package lk.sliit.solargrid.data.repo;
 
 import static org.junit.Assert.assertEquals;

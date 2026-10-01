@@ -1,3 +1,12 @@
+/*
+ * File:    QrImages.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Draws the signed booking text from the API as a QR code picture.
+ *          The phone never makes up the text itself; it only draws what the
+ *          API signed, and the operator's scanner reads it back.
+ * Source:  AND-32 (ZXing QR code encoder).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.graphics.Bitmap;

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    ic_circle_check.xml
+  Module:  Icons
+  Owner:   Ravindu
+  Purpose: Lucide "circle-check" icon, converted by scripts/make-icons.mjs.
+  Source:  AND-06 (Lucide icons, ISC licence).
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    fragment_today.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: The operator's "Today" tab: the bookings at every station on one of
+           the next seven days, a search box, and three numbers from the staff
+           dashboard. Tapping a booking opens it, where it can be cancelled
+           for the prosumer.
+  Source:  AND-02 (clay design system), AND-30 (chips).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

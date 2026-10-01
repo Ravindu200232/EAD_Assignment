@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    view_detail_row.xml
+  Module:  Shared views
+  Owner:   Ravindu
+  Purpose: One "label on the left, value on the right" line. Details cards in
+           every part of the app include this row, so they all look the same.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

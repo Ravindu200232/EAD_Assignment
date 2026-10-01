@@ -1,3 +1,13 @@
+/*
+ * File:    StationDao.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: Keeps the stations the app has seen in SQLite, so the list of
+ *          stations and their details still show without a connection. The
+ *          weekly schedule is kept as a small piece of JSON in one column.
+ *          Stations are not personal, so they stay after a logout.
+ * Source:  AND-09 (Android SQLiteOpenHelper and ContentValues).
+ */
 package lk.sliit.solargrid.data.local;
 
 import android.content.ContentValues;

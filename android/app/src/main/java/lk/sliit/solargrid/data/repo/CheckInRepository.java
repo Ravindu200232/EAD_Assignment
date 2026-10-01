@@ -1,3 +1,12 @@
+/*
+ * File:    CheckInRepository.java
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: The two calls a Grid Operator makes at the station: check the
+ *          scanned QR code, then record the delivered energy. The API checks
+ *          the signature, the station and the time window, so the app only
+ *          passes the code on and shows the answer.
+ */
 package lk.sliit.solargrid.data.repo;
 
 import lk.sliit.solargrid.data.remote.ApiCallback;

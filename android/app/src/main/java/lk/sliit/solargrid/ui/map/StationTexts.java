@@ -1,3 +1,12 @@
+/*
+ * File:    StationTexts.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: The words every station screen uses: where the station is and how
+ *          far, how many bays are free (as a coloured chip), how much energy
+ *          one booking may use and the hours of today. One place, so the map
+ *          card, the list and the station page always agree.
+ */
 package lk.sliit.solargrid.ui.map;
 
 import android.content.Context;

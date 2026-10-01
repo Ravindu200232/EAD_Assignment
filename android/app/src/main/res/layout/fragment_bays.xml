@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    fragment_bays.xml
+  Module:  Stations
+  Owner:   Nimthara
+  Purpose: The operator Bays tab: choose a station and set how many of its
+           battery bays are free, with a big minus and plus.
+  Source:  AND-02 (clay design system), AND-05 (Material exposed dropdown).
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

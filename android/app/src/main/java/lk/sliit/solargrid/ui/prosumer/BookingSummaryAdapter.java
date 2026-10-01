@@ -1,3 +1,11 @@
+/*
+ * File:    BookingSummaryAdapter.java
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Draws the coming bookings on the home screen, one card per booking.
+ *          The same bind() fills the "next booking" card, so both look alike.
+ * Source:  AND-25 (RecyclerView lists).
+ */
 package lk.sliit.solargrid.ui.prosumer;
 
 import android.annotation.SuppressLint;

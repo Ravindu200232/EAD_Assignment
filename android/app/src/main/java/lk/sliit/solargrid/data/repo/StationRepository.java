@@ -1,3 +1,14 @@
+/*
+ * File:    StationRepository.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: Stations, their slots and their battery bays. Every station the
+ *          API sends is also saved in SQLite, so when the phone is offline the
+ *          map list and the station page still show the last known details.
+ *          Slots are never taken from the phone, because a booking must use
+ *          the free bays the API knows right now.
+ * Source:  AND-21 (background work with an executor).
+ */
 package lk.sliit.solargrid.data.repo;
 
 import android.os.Handler;

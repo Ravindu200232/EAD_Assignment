@@ -1,3 +1,15 @@
+/*
+ * File:    TodayFragment.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The operator's "Today" tab. It lists the bookings at every station
+ *          on the chosen day (today and the six days after it), earliest
+ *          first, with the prosumer's name, and shows three numbers from the
+ *          staff dashboard. Tapping a booking opens its page, where the
+ *          operator can cancel it for a prosumer who calls the station; the
+ *          API applies the same 12-hour rule as for the prosumer.
+ * Source:  AND-25 (RecyclerView lists), AND-26 (pull to refresh), AND-30 (chips).
+ */
 package lk.sliit.solargrid.ui.operator;
 
 import android.os.Bundle;

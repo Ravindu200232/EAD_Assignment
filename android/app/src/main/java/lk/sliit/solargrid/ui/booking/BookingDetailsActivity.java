@@ -1,3 +1,16 @@
+/*
+ * File:    BookingDetailsActivity.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The page of one booking. It says what happens next, shows the QR
+ *          code once the booking is approved (with the screen at full
+ *          brightness, so the operator's camera reads it easily), lists the
+ *          details and the history, and offers Change and Cancel while the API
+ *          says the booking can still be changed. Grid Operators open the same
+ *          page from their "Today" list and can cancel for the prosumer.
+ * Source:  AND-32 (ZXing QR code encoder), AND-34 (screen brightness),
+ *          AND-35 (returning to an open screen).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.content.Context;

@@ -1,3 +1,12 @@
+/*
+ * File:    Times.java
+ * Module:  Core
+ * Owner:   Ravindu
+ * Purpose: Reads the UTC times the Web API sends and writes them back as Sri
+ *          Lankan local time. Every screen formats dates through this class,
+ *          so the app looks the same everywhere.
+ * Source:  AND-20 (java.time on Android).
+ */
 package lk.sliit.solargrid.util;
 
 import androidx.annotation.Nullable;

@@ -1,3 +1,16 @@
+/*
+ * File:    BookingWizardActivity.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Books a slot, or changes a booking, in four steps: the station,
+ *          a day in the next seven days and one of its free slots, the energy
+ *          and its direction (Export or Import), and a review. The API checks
+ *          every rule (7 days ahead, 12 hours' notice, a free bay, the energy
+ *          one bay can hold, no two bookings at once) and its message is
+ *          shown when it says no. Success always ends on the summary screen.
+ * Source:  AND-25 (RecyclerView lists), AND-30 (chips), AND-33 (step bar),
+ *          AND-35 (back button and keeping the choices).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.content.Context;

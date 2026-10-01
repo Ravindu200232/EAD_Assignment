@@ -1,3 +1,11 @@
+/*
+ * File:    LocalNetworkTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Checks which server addresses count as the local network, because
+ *          only those need the Android 17 permission before the app can reach
+ *          them.
+ */
 package lk.sliit.solargrid.util;
 
 import static org.junit.Assert.assertFalse;

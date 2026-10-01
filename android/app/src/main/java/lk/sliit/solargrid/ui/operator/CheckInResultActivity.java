@@ -1,3 +1,12 @@
+/*
+ * File:    CheckInResultActivity.java
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Shows what the server said about a scanned code, the booking behind
+ *          it, and lets the operator record the energy that was delivered. All
+ *          the checking (signature, station, time window, status) happens in
+ *          the API; this screen only shows the answer and sends the number.
+ */
 package lk.sliit.solargrid.ui.operator;
 
 import android.content.ActivityNotFoundException;

@@ -1,3 +1,13 @@
+/*
+ * File:    StationsFlowTest.java
+ * Module:  Tests
+ * Owner:   Nimthara
+ * Purpose: Walks the station screens on the emulator: the nearby stations in
+ *          the list view, the station page with its hours and today's slots,
+ *          and the operator bay counter. The phone is placed in Malabe, so the
+ *          test never depends on a real GPS.
+ * Source:  AND-15 (Espresso).
+ */
 package lk.sliit.solargrid.ui.map;
 
 import static androidx.test.espresso.Espresso.onView;

@@ -1,3 +1,13 @@
+/*
+ * File:    ApiError.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: Turns a failed request into something a person can read. It picks
+ *          the best sentence the API gave us, and keeps the field messages so
+ *          a form can mark the box that needs fixing. The app never writes its
+ *          own version of a rule the API already explained.
+ * Source:  AND-19 (ProblemDetails error format), AND-17 (Retrofit responses).
+ */
 package lk.sliit.solargrid.data.remote;
 
 import androidx.annotation.NonNull;

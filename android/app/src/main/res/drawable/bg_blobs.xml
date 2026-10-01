@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    bg_blobs.xml
+  Module:  Theme
+  Owner:   Ravindu
+  Purpose: Soft colour clouds behind the sign-in and home screens.
+  Source:  AND-02 (clay design system).
+-->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/canvas" />
     <item

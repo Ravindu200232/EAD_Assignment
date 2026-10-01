@@ -1,3 +1,10 @@
+/*
+ * File:    SlotDto.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: One time slot at a station, as GET api/stations/{id}/slots sends
+ *          it: when it runs, how many bays it has and how many are still free.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 public class SlotDto {

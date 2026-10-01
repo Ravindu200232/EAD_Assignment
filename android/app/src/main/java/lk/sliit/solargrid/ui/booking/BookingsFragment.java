@@ -1,3 +1,14 @@
+/*
+ * File:    BookingsFragment.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The Bookings tab. Current (approved and still to come), waiting
+ *          (pending approval) and history (finished, cancelled, rejected or
+ *          missed) each have a tab. A search box and three filters narrow the
+ *          list; the API does the filtering and sends the list page by page.
+ * Source:  AND-25 (RecyclerView lists), AND-26 (pull to refresh),
+ *          AND-33 (Material tabs and date range picker).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.os.Bundle;

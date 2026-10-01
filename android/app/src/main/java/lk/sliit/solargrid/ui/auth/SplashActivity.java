@@ -1,3 +1,12 @@
+/*
+ * File:    SplashActivity.java
+ * Module:  Authentication
+ * Owner:   Ravindu
+ * Purpose: The screen the app opens on. It reads the login saved in SQLite,
+ *          asks the API whether that login still works, and then opens the
+ *          home screen of the right role. With no network the saved details
+ *          are used, so the app still opens.
+ */
 package lk.sliit.solargrid.ui.auth;
 
 import android.annotation.SuppressLint;

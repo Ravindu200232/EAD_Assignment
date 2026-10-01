@@ -1,3 +1,13 @@
+/*
+ * File:    OperatorCheckInTest.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Walks the operator flow on the emulator: type a booking code, read
+ *          what the server said, record the delivered energy and see the
+ *          finished summary. The typed code is used instead of the camera, so
+ *          the test needs no picture on screen.
+ * Source:  AND-15 (Espresso).
+ */
 package lk.sliit.solargrid.ui.operator;
 
 import static androidx.test.espresso.Espresso.onView;

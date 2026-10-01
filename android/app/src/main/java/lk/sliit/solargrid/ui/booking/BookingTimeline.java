@@ -1,3 +1,12 @@
+/*
+ * File:    BookingTimeline.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: The history of one booking as a list of dated steps: booked,
+ *          approved or rejected, cancelled, the last moment for changes, the
+ *          start of the transfer, completed or missed. It follows the
+ *          timeline of the web portal, so both apps tell the same story.
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.content.Context;

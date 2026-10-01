@@ -1,3 +1,9 @@
+/*
+ * File:    LoginRequest.java
+ * Module:  API access
+ * Owner:   Ravindu
+ * Purpose: What the app sends to POST api/auth/login.
+ */
 package lk.sliit.solargrid.data.remote.dto;
 
 public class LoginRequest {

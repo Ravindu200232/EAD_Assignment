@@ -1,3 +1,11 @@
+/*
+ * File:    DashboardRepository.java
+ * Module:  Dashboards
+ * Owner:   Malith
+ * Purpose: Fetches the prosumer home screen numbers. The API counts the
+ *          bookings itself, so the app never adds them up on its own and the
+ *          numbers always match the web portal.
+ */
 package lk.sliit.solargrid.data.repo;
 
 import lk.sliit.solargrid.data.remote.ApiCallback;
@@ -20,7 +28,7 @@ public class DashboardRepository {
         ApiCalls.enqueue(api.myDashboard(), callback);
     }
 
-    /** The staff numbers over all stations . */
+    /** The staff numbers over all stations (added by Hamnad for the operator "Today" tab). */
     public void staffSummary(ApiCallback<StaffDashboardDto> callback) {
         ApiCalls.enqueue(api.staffDashboard(), callback);
     }

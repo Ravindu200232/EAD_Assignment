@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    heading_black.xml
+  Module:  Theme
+  Owner:   Ravindu
+  Purpose: Nunito Black for big numbers.
+  Source:  AND-04 (bundled variable fonts, SIL Open Font License).
+-->
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <font

@@ -1,3 +1,11 @@
+/*
+ * File:    Places.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: Where the map starts. All the stations are in Sri Lanka, so when
+ *          the phone location is unknown or somewhere else (an emulator starts
+ *          in California), the map starts in Colombo instead.
+ */
 package lk.sliit.solargrid.util;
 
 import androidx.annotation.Nullable;

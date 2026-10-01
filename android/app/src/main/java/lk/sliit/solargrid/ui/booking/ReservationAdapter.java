@@ -1,3 +1,12 @@
+/*
+ * File:    ReservationAdapter.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: Draws bookings as cards in the Bookings tab and in the operator
+ *          "Today" list, with the same card the home screen uses. Operators
+ *          also see whose booking it is.
+ * Source:  AND-25 (RecyclerView lists).
+ */
 package lk.sliit.solargrid.ui.booking;
 
 import android.annotation.SuppressLint;

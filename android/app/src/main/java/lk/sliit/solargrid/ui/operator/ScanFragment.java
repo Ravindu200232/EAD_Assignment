@@ -1,3 +1,13 @@
+/*
+ * File:    ScanFragment.java
+ * Module:  Operator Check-in
+ * Owner:   Ravindu
+ * Purpose: Where a Grid Operator starts a check-in. The camera reads the QR
+ *          code in the prosumer app; when that is not possible (no camera
+ *          permission, a cracked screen, a dark station) the operator types
+ *          the code text instead. Both ways open the same result screen.
+ * Source:  AND-11 (ZXing embedded scanner), AND-12 (runtime permissions).
+ */
 package lk.sliit.solargrid.ui.operator;
 
 import android.Manifest;

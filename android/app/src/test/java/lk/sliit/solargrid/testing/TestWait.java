@@ -1,3 +1,13 @@
+/*
+ * File:    TestWait.java
+ * Module:  Tests
+ * Owner:   Ravindu
+ * Purpose: Lets a local test wait for an answer that comes back on the main
+ *          thread. Requests run on a background thread and post their result
+ *          to the main looper, so the test keeps running that looper until the
+ *          result has arrived.
+ * Source:  AND-13 (Robolectric loopers).
+ */
 package lk.sliit.solargrid.testing;
 
 import org.robolectric.shadows.ShadowLooper;

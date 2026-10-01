@@ -1,3 +1,12 @@
+/*
+ * File:    BookingFilter.java
+ * Module:  Energy Reservations
+ * Owner:   Hamnad
+ * Purpose: What the booking list is asked to show: the tab (current, waiting
+ *          or history), an optional status, station and date range, and a
+ *          search text. The API does the filtering; this class only carries
+ *          the choices and writes them in the form the API expects.
+ */
 package lk.sliit.solargrid.data.model;
 
 import androidx.annotation.Nullable;

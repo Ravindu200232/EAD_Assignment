@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    fragment_bookings.xml
+  Module:  Energy Reservations
+  Owner:   Hamnad
+  Purpose: The Bookings tab: current, waiting and past bookings in three tabs,
+           with a search box, filters for status, station and dates, and the
+           button that starts a new booking.
+  Source:  AND-02 (clay design system), AND-33 (Material tabs and date range picker).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
