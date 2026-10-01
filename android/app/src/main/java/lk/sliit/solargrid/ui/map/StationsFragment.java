@@ -1,3 +1,15 @@
+/*
+ * File:    StationsFragment.java
+ * Module:  Stations
+ * Owner:   Nimthara
+ * Purpose: The Map tab. It finds where the prosumer is (when allowed), asks
+ *          the API for the stations nearby and puts them on a Google map, or
+ *          in a list with a search box. A marker opens a card with the free
+ *          bays, the hours of today and the distance. Without a location the
+ *          map starts in Colombo, and without a Maps key the list is shown.
+ * Source:  AND-29 (Google Maps SDK for Android), AND-28 (fused location),
+ *          AND-12 (asking for a permission).
+ */
 package lk.sliit.solargrid.ui.map;
 
 import android.Manifest;
@@ -33,6 +45,7 @@ import lk.sliit.solargrid.data.remote.ApiError;
 import lk.sliit.solargrid.data.remote.dto.StationDto;
 import lk.sliit.solargrid.data.repo.CachedCallback;
 import lk.sliit.solargrid.databinding.FragmentStationsBinding;
+import lk.sliit.solargrid.ui.booking.BookingWizardActivity;
 import lk.sliit.solargrid.ui.common.BaseActivity;
 import lk.sliit.solargrid.ui.common.Forms;
 import lk.sliit.solargrid.util.LocationFinder;
@@ -233,6 +246,9 @@ public class StationsFragment extends Fragment {
         binding.stationCardEnergy.setText(StationTexts.energy(requireContext(), station));
         StationTexts.paintBays(binding.stationCardBays, station);
         binding.stationCardDetails.setOnClickListener(view -> openStation(station));
+        // Hamnad: the booking form starts at this station.
+        binding.stationCardBook.setOnClickListener(view ->
+                startActivity(BookingWizardActivity.forNewBooking(requireContext(), station.id)));
         binding.stationCard.setVisibility(View.VISIBLE);
     }
 

@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    fragment_stations.xml
+  Module:  Stations
+  Owner:   Nimthara
+  Purpose: The Map tab: nearby stations on a Google map, or as a list with a
+           search box. Tapping a station opens a card with its bays, hours and
+           distance.
+  Source:  AND-02 (clay design system), AND-29 (Google Maps SDK for Android).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -222,11 +231,21 @@
                     android:textAppearance="@style/TextAppearance.SolarGrid.Muted"
                     tools:text="Up to 50 kWh per booking" />
 
+                <!-- Hamnad: book a slot at this station straight from the map. -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/station_card_details"
+                    android:id="@+id/station_card_book"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_m"
+                    android:text="@string/station_book"
+                    app:icon="@drawable/ic_calendar_plus" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/station_card_details"
+                    style="@style/Widget.SolarGrid.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_s"
                     android:text="@string/stations_see_slots"
                     app:icon="@drawable/ic_calendar_days" />
             </LinearLayout>

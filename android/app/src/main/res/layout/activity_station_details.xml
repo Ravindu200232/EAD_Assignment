@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File:    activity_station_details.xml
+  Module:  Stations
+  Owner:   Nimthara
+  Purpose: One station: its bays and energy per booking, the weekly opening
+           hours, and the slots of each of the next seven days.
+  Source:  AND-02 (clay design system).
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -127,6 +135,17 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Hamnad: prosumers start the booking form at this station. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/station_book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:text="@string/station_book"
+                android:visibility="gone"
+                app:icon="@drawable/ic_calendar_plus"
+                tools:visibility="visible" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
