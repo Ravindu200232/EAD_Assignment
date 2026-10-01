@@ -1,3 +1,11 @@
+<#
+  File:    smoke-test.ps1
+  Module:  Deployment
+  Owner:   Ravindu
+  Purpose: Quick check that the API on IIS is running, reaches MongoDB and accepts logins.
+  Usage:   powershell -ExecutionPolicy Bypass -File deploy\iis\smoke-test.ps1
+           powershell -ExecutionPolicy Bypass -File deploy\iis\smoke-test.ps1 -BaseUrl http://192.168.1.20:8080
+#>
 param(
     [string]$BaseUrl = "http://localhost:8080",
     [string]$Username = "admin@solargrid.lk",
@@ -67,6 +75,7 @@ Test-Step "PUT and DELETE reach the API" {
     "both answered 404 by the API"
 }
 
+# Added by Malith
 Test-Step "Public summary" {
     $summary = Invoke-RestMethod "$BaseUrl/api/dashboard/public"
     "$($summary.activeStations) active stations, $($summary.totalEnergyTradedKwh) kWh traded"
@@ -82,6 +91,7 @@ Test-Step "Prosumer list" {
     "$($page.total) prosumers"
 }
 
+# Added by Nimthara
 Test-Step "Station list" {
     $stations = @(Get-JsonList "$BaseUrl/api/stations")
     if ($stations.Count -gt 0) { $script:firstStationId = $stations[0].id }
@@ -99,6 +109,7 @@ Test-Step "Station slots" {
     "$($slots.Count) slots in the next 7 days"
 }
 
+# Added by Hamnad
 Test-Step "Pending reservations" {
     $page = Invoke-RestMethod "$BaseUrl/api/reservations?scope=pending&pageSize=5" -Headers $script:headers
     "$($page.total) waiting for approval"

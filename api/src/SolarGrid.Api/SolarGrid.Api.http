@@ -49,7 +49,7 @@ Content-Type: application/json
   "isActive": false
 }
 
-### ---------- Prosumers and dashboards ----------
+### ---------- Prosumers and dashboards (Malith) ----------
 
 ### Prosumer sign-up from the mobile app (account starts as Pending)
 POST {{host}}/api/prosumers/register
@@ -81,7 +81,7 @@ Authorization: Bearer {{token}}
 ### Public home page numbers
 GET {{host}}/api/dashboard/public
 
-### ---------- Stations and slots ----------
+### ---------- Stations and slots (Nimthara) ----------
 
 ### All stations
 GET {{host}}/api/stations
@@ -118,6 +118,10 @@ Content-Type: application/json
   "slotMinutes": 120
 }
 
+### Delete a station that was never booked (Backoffice) - run this last, it removes the station above
+# DELETE {{host}}/api/stations/{{newStation.response.body.$.id}}
+# Authorization: Bearer {{token}}
+
 ### Take two battery slots out of service (Grid Operator or Backoffice)
 PATCH {{host}}/api/stations/{{newStation.response.body.$.id}}/battery-slots
 Authorization: Bearer {{token}}
@@ -127,7 +131,7 @@ Content-Type: application/json
   "availableBatterySlots": 6
 }
 
-### ---------- Reservations and QR codes ----------
+### ---------- Reservations and QR codes (Hamnad) ----------
 
 ### Pick the first station and its open slots
 # @name stations
@@ -168,7 +172,7 @@ Authorization: Bearer {{token}}
 GET {{host}}/api/reservations?scope=history&search=RSV-DEMO
 Authorization: Bearer {{token}}
 
-### ---------- Operator check-in ----------
+### ---------- Operator check-in (Ravindu) ----------
 
 ### Scan the QR code of the approved booking (Grid Operator or Backoffice)
 # @name qr

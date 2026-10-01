@@ -1,3 +1,10 @@
+/*
+ * File:    ServiceSetup.cs
+ * Module:  Startup
+ * Owner:   Ravindu
+ * Purpose: Registers settings, controllers, data access, business services
+ *          and CORS so Program.cs stays short. New services are added here.
+ */
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Options;
 using SolarGrid.Api.Common;
