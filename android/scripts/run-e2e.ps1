@@ -67,13 +67,23 @@ $env:MongoDb__DatabaseName = $databaseName
 $env:App__SeedDemoData = "true"
 
 $apiProject = Join-Path $repoFolder "api\src\SolarGrid.Api\SolarGrid.Api.csproj"
+$apiLog = Join-Path $env:TEMP "solargrid-android-e2e-api.log"
+$apiErrorLog = Join-Path $env:TEMP "solargrid-android-e2e-api-errors.log"
+
+# The repository folder name has a space in it, and Start-Process does not put
+# quotes around an argument by itself, so the path is quoted here.
 $api = Start-Process -FilePath "dotnet" `
-    -ArgumentList @("run", "--project", $apiProject, "--no-launch-profile") `
-    -PassThru -WindowStyle Hidden
+    -ArgumentList @("run", "--project", "`"$apiProject`"", "--no-launch-profile") `
+    -PassThru -WindowStyle Hidden `
+    -RedirectStandardOutput $apiLog `
+    -RedirectStandardError $apiErrorLog
 
 $testsPassed = $false
 try {
     if (-not (Wait-ForApi -Url $apiUrl)) {
+        Write-Host "The last lines the API wrote:"
+        Get-Content $apiLog -Tail 20 -ErrorAction SilentlyContinue
+        Get-Content $apiErrorLog -Tail 20 -ErrorAction SilentlyContinue
         throw "The API did not answer on $apiUrl. Is MongoDB running?"
     }
     Write-Host "The API is ready. Running the live tests on the emulator."
@@ -86,7 +96,9 @@ try {
     $testsPassed = ($LASTEXITCODE -eq 0)
 } finally {
     if ($api -and -not $api.HasExited) {
-        Stop-Process -Id $api.Id -Force
+        # "dotnet run" starts the API as a second process, so the whole tree
+        # is stopped; stopping only the first one leaves the API running.
+        & taskkill /PID $api.Id /T /F | Out-Null
         Write-Host "Stopped the API"
     }
     if ($KeepDatabase) {

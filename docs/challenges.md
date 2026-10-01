@@ -264,3 +264,25 @@ page. Each entry says what went wrong, why it happened, and what we changed.
 - **Fix:** Every screen asks the system how much room those bars need and pads itself by that much, so the content
   starts below the clock and ends above the gesture bar.
 - **Where:** `android/app/src/main/java/lk/sliit/solargrid/ui/common/BaseActivity.java`.
+
+### 38. The live test script started nothing
+- **Problem:** `android\scripts\run-e2e.ps1` said it was starting the API, then waited three minutes and gave up.
+- **Why:** The repository folder is `C:\eda assignment`, with a space in the name. PowerShell's `Start-Process` does not
+  put quotes around the values in `-ArgumentList`, so `dotnet` was told the project was `C:\eda`. The window was
+  hidden, so the message never reached the screen.
+- **Fix:** The project path is quoted, and the API now writes to a log file that the script prints when the server does
+  not answer in time.
+- **Where:** `android/scripts/run-e2e.ps1`.
+
+### 39. The app could not reach the API that the emulator could
+- **Problem:** Against a real server, every request from the app ran for 20 seconds and then failed with
+  *"failed to connect to /10.0.2.2 (port 8080)"*, although the emulator itself reached the same port at once.
+- **Why:** From Android 17, an app that targets it may not connect to the local network (private addresses such as
+  `10.0.2.2` or `192.168.x.x`) until the user allows the "Nearby devices" permission `ACCESS_LOCAL_NETWORK`. The
+  blocked connection does not fail quickly; it just never answers. Our tests with the stand-in server passed because
+  that server runs on the phone itself, which does not count as the local network.
+- **Fix:** The app declares the permission and asks for it before its first request when the API address is on the
+  local network; an API on the internet needs nothing. If the user says no, the login screen explains how to allow it.
+  The live tests grant the permission before they start.
+- **Where:** `android/app/src/main/java/lk/sliit/solargrid/util/LocalNetwork.java`, `ui/common/BaseActivity.java`,
+  `ui/auth/LoginActivity.java`, `ui/auth/SplashActivity.java`, `AndroidManifest.xml`.

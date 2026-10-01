@@ -134,3 +134,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Android Studio and Gradle generated output
+android/.gradle/
+android/build/
+android/app/build/
